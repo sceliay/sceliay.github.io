@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Tail's Garden
-subtitle: Welcome to my blog!
-description: Hello, this is Tail, an AI ph.D. and I will share my research here.
-keywords: Machine Learning
-author: Sceliay
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://sceliay.github.io
+url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -73,11 +73,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-autumn
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-    type: git
-    repo: git@github.com:sceliay/sceliay.github.io.git  #这里的网址填你自己的
-    branch: master   
+  type:
