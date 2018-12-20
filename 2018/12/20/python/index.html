@@ -70,126 +70,76 @@
     </nav>
 </header>
                 <main class="main">
-                    
-<section class="posts">
+                    <article class="post">
     
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Notes/">
-                        Notes
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2018/12/20/python/">
-                            python
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 20, 2018
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2018/12/20/python/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
+        <h4 class="post-cat">
+            <a href="/categories/Notes/">
+                Notes
+            </a>
+        </h4>
         
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2018/12/19/Theano/">
-                            Theano
-                        </a>
-                    </h1>
+            <h2 class="post-title">
+                python
+            </h2>
+            <ul class="post-date">
+                <li>
+                    2018-12-20
+                </li>
+                <li>
+                    Sceliay
+                </li>
+            </ul>
+            <div class="post-content">
+                <p>渣渣程序员记录一下python中的一些语法&amp;函数。</p>
+<ol>
+<li><p>原数+1: <code>x += 1</code></p>
+</li>
+<li><p>字符串与数字的转换：</p>
+</li>
+</ol>
+<ul>
+<li><code>str(2) = &#39;2&#39;</code></li>
+<li><code>int(&#39;2&#39;) = 2</code></li>
+</ul>
+<ol start="3">
+<li>字符串的提取：</li>
+</ol>
+<ul>
+<li><code>str.strip([chars])</code><ul>
+<li>用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列</li>
+</ul>
+</li>
+<li><p><code>str.split(str=&quot;&quot;, num=string.count(str))</code></p>
+<ul>
+<li>通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</li>
+</ul>
+<ol start="4">
+<li>字符串的拼接：</li>
+</ol>
+<ul>
+<li>用%拼接：<ul>
+<li><code>str = &#39;There are %s, %s, %s on the table.&#39; % (fruit1,fruit2,fruit3)</code></li>
+<li><code>str = &#39;There are %(fruit1)s,%(fruit2)s,%(fruit3)s on the table&#39; % {&#39;fruit1&#39;:fruit1,&#39;fruit2&#39;:fruit2,&#39;fruit3&#39;:fruit3}</code></li>
+<li><code>%s</code> str, <code>%d</code> int, <code>%f</code> float, <code>%.2f</code> 两位小数float, <code>%8s</code> 8位占位符，<code>%-8s</code> 左对齐 </li>
+</ul>
+</li>
+<li><p>用join()拼接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp = [&apos;There are &apos;,fruit1,&apos;,&apos;,fruit2,&apos;,&apos;,fruit3,&apos; on the table&apos;]</span><br><span class="line">&apos;&apos;.join(temp)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用format()拼接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = &apos;There are &#123;2&#125;, &#123;1&#125;, &#123;0&#125; on the table&apos;</span><br><span class="line">str.format(fruit1,fruit2,fruit3) #fruit1出现在0的位置</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> str = &apos;There are &#123;fruit1&#125;, &#123;fruit2&#125;, &#123;fruit3&#125; on the table&apos;</span><br><span class="line">str.format(fruit1=fruit1,fruit2=fruit2,fruit3=fruit3)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>遍历list：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">Counter([1,2,2,2,2,3,3,3,4,4,4,4])</span><br><span class="line"></span><br><span class="line"># Counter(&#123;2: 4, 4: 4, 3: 3, 1: 1&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
-                    <ul class="post-date">
-                        <li>
-                            December 19, 2018
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2018/12/19/Theano/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2018/12/18/EHRSurvey/">
-                            Deep EHR Survey
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 18, 2018
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2018/12/18/EHRSurvey/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Notes/">
-                        Notes
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2018/12/17/createBlog/">
-                            用github+hexo搭建自己的博客
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 17, 2018
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2018/12/17/createBlog/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+            </div>
+</article>
 
                 </main>
                 <aside class="aside">
