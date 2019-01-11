@@ -126,18 +126,39 @@
 </li>
 <li><p>用join()拼接：</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp = [&apos;There are &apos;,fruit1,&apos;,&apos;,fruit2,&apos;,&apos;,fruit3,&apos; on the table&apos;]</span><br><span class="line">&apos;&apos;.join(temp)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>用format()拼接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = &apos;There are &#123;2&#125;, &#123;1&#125;, &#123;0&#125; on the table&apos;</span><br><span class="line">str.format(fruit1,fruit2,fruit3) #fruit1出现在0的位置</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> str = &apos;There are &#123;fruit1&#125;, &#123;fruit2&#125;, &#123;fruit3&#125; on the table&apos;</span><br><span class="line">str.format(fruit1=fruit1,fruit2=fruit2,fruit3=fruit3)</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li><p>用format()拼接：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = &apos;There are &#123;2&#125;, &#123;1&#125;, &#123;0&#125; on the table&apos;</span><br><span class="line">str.format(fruit1,fruit2,fruit3) #fruit1出现在0的位置</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> str = &apos;There are &#123;fruit1&#125;, &#123;fruit2&#125;, &#123;fruit3&#125; on the table&apos;</span><br><span class="line">str.format(fruit1=fruit1,fruit2=fruit2,fruit3=fruit3)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol start="5">
-<li>遍历list：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">Counter([1,2,2,2,2,3,3,3,4,4,4,4])</span><br><span class="line"></span><br><span class="line"># Counter(&#123;2: 4, 4: 4, 3: 3, 1: 1&#125;)</span><br></pre></td></tr></table></figure>
+<li><p>遍历list：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">Counter([1,2,2,2,2,3,3,3,4,4,4,4])</span><br><span class="line"></span><br><span class="line"># Counter(&#123;2: 4, 4: 4, 3: 3, 1: 1&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>numpy.random.uniform(low,high,size): <a href="https://blog.csdn.net/u013920434/article/details/52507173" target="_blank" rel="noopener">参考</a><br>low: 采样下界，float类型，默认值为0；<br>high: 采样上界，float类型，默认值为1；<br>size: 输出样本数目，为int或元组(tuple)类型，例如，size=(m,n,k), 则输出m<em>n</em>k个样本，缺省时输出1个值。<br>返回值：ndarray类型，其形状和参数size中描述一致。</p>
+</li>
+<li><p>OrderedDict(): <a href="https://www.cnblogs.com/gide/p/6370082.html" target="_blank" rel="noopener">参考</a><br>很多人认为python中的字典是无序的，因为它是按照hash来存储的，但是python中有个模块collections(英文，收集、集合)，里面自带了一个子类OrderedDict，实现了对字典对象中元素的排序。</p>
+</li>
+<li><p>zip():<a href="http://www.runoob.com/python/python-func-zip.html" target="_blank" rel="noopener">参考</a><br>zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。<br>如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,3]</span><br><span class="line">b = [4,5,6]</span><br><span class="line">c = [4,5,6,7,8]</span><br><span class="line">zipped = zip(a,b)     # 打包为元组的列表</span><br><span class="line"># [(1, 4), (2, 5), (3, 6)]</span><br><span class="line">zip(a,c)              # 元素个数与最短的列表一致</span><br><span class="line"># [(1, 4), (2, 5), (3, 6)]</span><br><span class="line">zip(*zipped)          # 与 zip 相反，*zipped 可理解为解压，返回二维矩阵式</span><br><span class="line"># [(1, 2, 3), (4, 5, 6)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除list中的元素</p>
 </li>
 </ol>
+<ul>
+<li><p>remove: 删除单个元素，删除首个符合条件的元素，按值删除<br>举例说明:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str=[1,2,3,4,5,2,6]</span><br><span class="line">str.remove(2)</span><br><span class="line">str</span><br><span class="line"># [1, 3, 4, 5, 2, 6]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pop:  删除单个或多个元素，按位删除(根据索引删除)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">str=[0,1,2,3,4,5,6]</span><br><span class="line">str.pop(1)   #pop删除时会返回被删除的元素</span><br><span class="line"># 1</span><br><span class="line">str</span><br><span class="line"># [0, 2, 3, 4, 5, 6]</span><br><span class="line">str2=[&apos;abc&apos;,&apos;bcd&apos;,&apos;dce&apos;]</span><br><span class="line">str2.pop(2)</span><br><span class="line"># &apos;dce&apos;</span><br><span class="line">str2</span><br><span class="line"># [&apos;abc&apos;, &apos;bcd&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>del：它是根据索引(元素所在位置)来删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str=[1,2,3,4,5,2,6]</span><br><span class="line">del str[1]</span><br><span class="line">str</span><br><span class="line"># [1, 3, 4, 5, 2, 6]</span><br><span class="line">str2=[&apos;abc&apos;,&apos;bcd&apos;,&apos;dce&apos;]</span><br><span class="line">del str2[1]</span><br><span class="line">str2</span><br><span class="line"># [&apos;abc&apos;, &apos;dce&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>除此之外，del还可以删除指定范围内的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str=[0,1,2,3,4,5,6]</span><br><span class="line">del str[2:4]  #删除从第2个元素开始，到第4个为止的元素(但是不包括尾部元素)</span><br><span class="line">str</span><br><span class="line"># [0, 1, 4, 5, 6]</span><br></pre></td></tr></table></figure></p>
+<p>del 也可以删除整个数据对象(列表、集合等)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str=[0,1,2,3,4,5,6]</span><br><span class="line">del str</span><br><span class="line">str         #删除后，找不到对象</span><br></pre></td></tr></table></figure></p>
 
             </div>
 </article>
