@@ -90,7 +90,7 @@
                 </li>
             </ul>
             <div class="post-content">
-                <p>在看<a href="https://github.com/mp2893/gram">GRAM</a>源码，记录一下Theano的语法。参考：<a href="https://morvanzhou.github.io/tutorials/machine-learning/theano/" target="_blank" rel="noopener">Theano教程系列</a>，<a href="http://deeplearning.net/software/theano/library/tensor/index.html" target="_blank" rel="noopener">Theano API documentation</a></p>
+                <p>在看<a href="https://github.com/mp2893/gram">GRAM</a>源码，记录一下Theano的语法。参考：<a href="https://morvanzhou.github.io/tutorials/machine-learning/theano/" target="_blank" rel="noopener">Theano教程系列</a>，<a href="http://deeplearning.net/software/theano/library/tensor/index.html" target="_blank" rel="noopener">Theano API documentation</a>, <a href="https://www.cnblogs.com/shouhuxianjian/category/699462.html" target="_blank" rel="noopener">Theano教程</a></p>
 <ol>
 <li><p>加载theano和numpy模块，并创建<code>function</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import theano.tensor as T</span><br><span class="line">from theano import function</span><br></pre></td></tr></table></figure>
@@ -126,6 +126,8 @@
 <li><p>Layer类</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">l1 = Layer(inputs, in_size, out_size, T.nnet.relu)</span><br><span class="line">l2 = Layer(l1.outputs, in_size, out_size, None) # None采用默认的线性激活函数</span><br><span class="line"></span><br><span class="line">class Layer(object):</span><br><span class="line">    def __init__(self, inputs, in_size, out_size, activation_function=None):</span><br><span class="line">        self.W = theano.shared(np.random.normal(0, 1, (in_size, out_size)))</span><br><span class="line">        self.b = theano.shared(np.zeros((out_size, )) + 0.1)</span><br><span class="line">        self.Wx_plus_b = T.dot(inputs, self.W) + self.b</span><br><span class="line">        self.activation_function = activation_function</span><br><span class="line">        if activation_function is None:</span><br><span class="line">            self.outputs = self.Wx_plus_b</span><br><span class="line">        else:</span><br><span class="line">            self.outputs = self.activation_function(self.Wx_plus_b)</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>数据类型<br>x=T.scalar(‘myvar’,dtype=theano.config.floatX)#创建0维阵列<br>x=T.vector(‘myvar’,dtype=theano.config.floatX)#创建以为阵列<br>x=T.row(‘myvar’,dtype=theano.config.floatX)#创建二维阵列,行数为1<br>x=T.col(‘myvar’,dtype=theano.config.floatX)#创建二维阵列,列数为1<br>x=T.matrix(‘myvar’,dtype=theano.config.floatX)#创建二维矩阵<br>x=T.tensor3(‘myvar’,dtype=theano.config.floatX)#创建三维张量<br>x=T.tensor4(‘myvar’,dtype=theano.config.floatX)#创建四维张量<br>x=T.tensor5(‘myvar’,dtype=theano.config.floatX)#创建五维张量<br>x.ndim#输出维度看看</p>
+</li>
 </ul>
 
             </div>
@@ -144,7 +146,7 @@
                         
     <h1>Archives</h1>
 
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
                     </section>
