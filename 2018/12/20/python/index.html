@@ -90,7 +90,7 @@
                 </li>
             </ul>
             <div class="post-content">
-                <p>渣渣程序员记录一下python中的一些语法&amp;函数。</p>
+                <p>python中的一些语法&amp;函数。</p>
 <ol>
 <li><p>原数+1: <code>x += 1</code></p>
 </li>
@@ -165,7 +165,20 @@
 </li>
 <li><p><a href="https://www.cnblogs.com/chaosimple/p/4153167.html" target="_blank" rel="noopener">数据预处理</a></p>
 </li>
+<li><p><a href="https://www.cnblogs.com/aiguiling/p/8594023.html" target="_blank" rel="noopener">排列组合</a></p>
+</li>
 </ol>
+<ul>
+<li><code>product</code> 笛卡尔积　　（有放回抽样排列）</li>
+<li><code>permutations</code> 排列　　（不放回抽样排列）</li>
+<li><code>combinations</code> 组合,没有重复　　（不放回抽样组合）</li>
+<li><code>combinations_with_replacement</code> 组合,有重复　　（有放回抽样组合）</li>
+<li><p>eg: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import itertools</span><br><span class="line">itertools.product(&apos;ABCD&apos;, repeat = 2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>combinations和permutations返回的是对象地址，iterators（迭代器），可以用list()转换为list</p>
+</li>
+</ul>
 
             </div>
 </article>
@@ -191,7 +204,7 @@
                         
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li></ul>
 
                     </section>
                 </aside>

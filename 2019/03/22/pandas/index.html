@@ -70,39 +70,42 @@
     </nav>
 </header>
                 <main class="main">
-                    
-<section class="posts">
+                    <article class="post">
     
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Notes/">
-                        Notes
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2018/12/17/createBlog/">
-                            用github+hexo搭建自己的博客
-                        </a>
-                    </h1>
+            <h2 class="post-title">
+                pandas
+            </h2>
+            <ul class="post-date">
+                <li>
+                    2019-03-22
+                </li>
+                <li>
+                    Sceliay
+                </li>
+            </ul>
+            <div class="post-content">
+                <p>一些pandas的语法</p>
+<ol>
+<li><p>读取与存储<br><code>read_csv</code>, <code>to_csv</code>, ·read_pickle<code>,</code>to_pickle`</p>
+</li>
+<li><p>缺损值填充</p>
+</li>
+</ol>
+<ul>
+<li><code>data = data.fillna(&#39;-1&#39;, )</code></li>
+<li><code>data = data.fillna(data.mean(), )</code></li>
+<li>填充[]:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nan_index = data[&apos;title_features&apos;][data[&apos;title_features&apos;].isnull()].index</span><br><span class="line">data[&apos;title_features&apos;].iloc[nan_index] = [[]]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li><p>计算缺损值个数：<br><code>Nan_num = data.shape[1]-data(axis=1)</code></p>
+</li>
+<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code></p>
+</li>
+</ol>
 
-                    <ul class="post-date">
-                        <li>
-                            December 17, 2018
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2018/12/17/createBlog/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
+            </div>
+</article>
 
                 </main>
                 <aside class="aside">
