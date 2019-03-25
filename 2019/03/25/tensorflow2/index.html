@@ -73,58 +73,42 @@
                     <article class="post">
     
             <h2 class="post-title">
-                Pandas学习笔记
+                Tensorflow学习笔记2
             </h2>
             <ul class="post-date">
                 <li>
-                    2019-03-22
+                    2019-03-25
                 </li>
                 <li>
                     Sceliay
                 </li>
             </ul>
             <div class="post-content">
-                <p>一些pandas的语法<br><a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">官方文档</a>, <a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">pandas vs. SQL</a>, <a href="https://www.cnblogs.com/en-heng/p/5630849.html" target="_blank" rel="noopener">教程</a></p>
+                <p>参考资料：<a href="https://keras.io/zh/" target="_blank" rel="noopener">Keras中文文档</a>, <a href="https://www.w3cschool.cn/tensorflow_python/tensorflow_python-bm7y28si.html" target="_blank" rel="noopener">W3CSCHOOL</a></p>
 <ol>
-<li><p>读取与存储<br><code>read_csv</code>, <code>to_csv</code>, <code>read_pickle</code>,<code>to_pickle</code></p>
+<li><p><a href="https://www.cnblogs.com/herbert/p/3468294.html" target="_blank" rel="noopener">namedtuple</a><br>namedtuple创建一个和tuple类似的对象，而且对象拥有可以访问的属性。这对象更像带有数据属性的类，不过数据属性是只读的。<br>eg: <code>TPoint = namedtuple(&#39;TPoint&#39;, [&#39;x&#39;, &#39;y&#39;])</code> 创建一个TPoint类型，而且带有属性x, y.</p>
 </li>
-<li><p>缺损值填充</p>
+<li><p><a href="http://www.runoob.com/python/python-func-isinstance.html" target="_blank" rel="noopener">isinstance</a><br>用来判断一个对象是否是一个已知的类型，类似 type()。<br><code>isinstance()</code> 与 <code>type()</code> 区别：</p>
 </li>
 </ol>
 <ul>
-<li><code>data = data.fillna(&#39;-1&#39;, )</code></li>
-<li><code>data = data.fillna(data.mean(), )</code></li>
-<li>填充[]: 不过，尽量不要用DataFrame存储list<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nan_index = data[data.isnull()].index</span><br><span class="line">data.loc[nan_index,] = [[]]</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>type()</code> 不会认为子类是一种父类类型，不考虑继承关系。</li>
+<li><code>isinstance()</code> 会认为子类是一种父类类型，考虑继承关系。<br>使用：<code>isinstance(object, classinfo)</code></li>
 </ul>
 <ol start="3">
-<li><p>计算缺损值个数：<br><code>Nan_num = data.shape[1]-data.count(axis=1)</code></p>
-</li>
-<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code></p>
-</li>
-<li><p>df.info()查看数据type</p>
-</li>
-<li><p><a href="https://juejin.im/post/5acc36e66fb9a028d043c2a5" target="_blank" rel="noopener">数据转换</a></p>
-</li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers" target="_blank" rel="noopener">tf.keras.layers</a></li>
 </ol>
 <ul>
-<li><p>astype()强制转换，仅返回数据的副本而不原地修改。</p>
-</li>
-<li><p>自定义转换：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def convert_currency(val):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Convert the string number value to a float</span><br><span class="line">     - Remove $</span><br><span class="line">     - Remove commas</span><br><span class="line">     - Convert to float type</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    new_val = val.replace(&apos;,&apos;,&apos;&apos;).replace(&apos;$&apos;, &apos;&apos;)</span><br><span class="line">    return float(new_val)</span><br><span class="line"></span><br><span class="line">df[&apos;2016&apos;].apply(convert_currency)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用lambda进行转换<br><code>df[&#39;2016&#39;].apply(lambda x: x.replace(&#39;$&#39;, &#39;&#39;).replace(&#39;,&#39;, &#39;&#39;)).astype(&#39;float&#39;)</code></p>
-</li>
-<li><p>使用to_numeric进行转换<br><code>pd.to_numeric(df[&#39;Jan Units&#39;], errors=&#39;coerce&#39;).fillna(0)</code></p>
-</li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Input" target="_blank" rel="noopener">Input</a>: 定义模型的输入</li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding" target="_blank" rel="noopener">Embedding</a>: 定义嵌入层<a href="http://frankchen.xyz/2017/12/18/How-to-Use-Word-Embedding-Layers-for-Deep-Learning-with-Keras/" target="_blank" rel="noopener">参考</a><ul>
+<li>Keras提供了一个嵌入层，适用于文本数据的神经网络。</li>
+<li>它要求输入数据是整数编码的，所以每个字都用一个唯一的整数表示。这个数据准备步骤可以使用Keras提供的Tokenizer API来执行。</li>
+<li>嵌入层用随机权重进行初始化，并将学习训练数据集中所有单词的嵌入。</li>
+<li><code>e = Embedding(input_dim=200, output_dim=32, input_length=50)</code>    </li>
 </ul>
-<ol start="7">
-<li><a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/3-2-pd-indexing/" target="_blank" rel="noopener">选择数据</a></li>
-</ol>
-<ul>
-<li><code>loc</code>根据标签</li>
-<li><code>iloc</code>根据序列</li>
-<li><code>ix</code>混合</li>
+</li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/add" target="_blank" rel="noopener">add</a>: 将两个输出加和</li>
+<li>[Concatenate]</li>
 </ul>
 
             </div>
