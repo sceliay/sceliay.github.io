@@ -185,7 +185,24 @@
 <li><p><code>enumerate()</code> 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;seasons = [&apos;Spring&apos;, &apos;Summer&apos;, &apos;Fall&apos;, &apos;Winter&apos;]</span><br><span class="line">&gt;&gt;&gt; list(enumerate(seasons))</span><br><span class="line">[(0, &apos;Spring&apos;), (1, &apos;Summer&apos;), (2, &apos;Fall&apos;), (3, &apos;Winter&apos;)]</span><br><span class="line">&gt;&gt;&gt; list(enumerate(seasons, start=1))       # 下标从 1 开始</span><br><span class="line">[(1, &apos;Spring&apos;), (2, &apos;Summer&apos;), (3, &apos;Fall&apos;), (4, &apos;Winter&apos;)]</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>将lst = [ [1, 2, 3], [2, 1, 3], [8, 4, 3] ]，变为[1, 2, 3, 2, 1, 3, 8, 4, 3]</p>
+</li>
 </ol>
+<ul>
+<li><code>myList = [x for j in lst for x in j]</code></li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from itertools import chain</span><br><span class="line">mylist = list(chain(*lst))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="15">
+<li><p><a href="https://www.cnblogs.com/herbert/p/3468294.html" target="_blank" rel="noopener">namedtuple</a><br>namedtuple创建一个和tuple类似的对象，而且对象拥有可以访问的属性。这对象更像带有数据属性的类，不过数据属性是只读的。<br>eg: <code>TPoint = namedtuple(&#39;TPoint&#39;, [&#39;x&#39;, &#39;y&#39;])</code> 创建一个TPoint类型，而且带有属性x, y.</p>
+</li>
+<li><p><a href="http://www.runoob.com/python/python-func-isinstance.html" target="_blank" rel="noopener">isinstance</a><br>用来判断一个对象是否是一个已知的类型，类似 type()。<br><code>isinstance()</code> 与 <code>type()</code> 区别：</p>
+</li>
+</ol>
+<ul>
+<li><code>type()</code> 不会认为子类是一种父类类型，不考虑继承关系。</li>
+<li><code>isinstance()</code> 会认为子类是一种父类类型，考虑继承关系。<br>使用：<code>isinstance(object, classinfo)</code></li>
+</ul>
 
             </div>
 </article>
@@ -211,7 +228,7 @@
                         
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
                     </section>
                 </aside>

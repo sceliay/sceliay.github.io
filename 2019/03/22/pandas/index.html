@@ -106,7 +106,7 @@
 <ol start="3">
 <li><p>计算缺损值个数：<br><code>Nan_num = data.shape[1]-data.count(axis=1)</code></p>
 </li>
-<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code></p>
+<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code><br>drop函数默认删除行，列需要加<code>axis = 1</code></p>
 </li>
 <li><p>df.info()查看数据type</p>
 </li>
@@ -132,6 +132,9 @@
 <li><code>iloc</code>根据序列</li>
 <li><code>ix</code>混合</li>
 </ul>
+<ol start="8">
+<li><a href="https://blog.csdn.net/stevenkwong/article/details/52528616" target="_blank" rel="noopener">数据合并</a></li>
+</ol>
 
             </div>
 </article>
@@ -157,7 +160,7 @@
                         
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
                     </section>
                 </aside>
