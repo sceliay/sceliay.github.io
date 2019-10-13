@@ -90,7 +90,7 @@
                 </li>
             </ul>
             <div class="post-content">
-                <p>一些pandas的语法<br><a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">官方文档</a>, <a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">pandas vs. SQL</a>, <a href="https://www.cnblogs.com/en-heng/p/5630849.html" target="_blank" rel="noopener">教程</a></p>
+                <p>记录一些pandas的语法<br><a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">官方文档</a>, <a href="http://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html" target="_blank" rel="noopener">pandas vs. SQL</a>, <a href="https://www.cnblogs.com/en-heng/p/5630849.html" target="_blank" rel="noopener">教程</a></p>
 <ol>
 <li><p>读取与存储<br><code>read_csv</code>, <code>to_csv</code>, <code>read_pickle</code>,<code>to_pickle</code></p>
 </li>
@@ -133,7 +133,28 @@
 <li><code>ix</code>混合</li>
 </ul>
 <ol start="8">
-<li><a href="https://blog.csdn.net/stevenkwong/article/details/52528616" target="_blank" rel="noopener">数据合并</a></li>
+<li><p>[数据合并](<a href="https://blog.csdn.net/stevenkwong/article/details/52528616" target="_blank" rel="noopener">https://blog.csdn.net/stevenkwong/article/details/52528616</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/waple_0820/article/details/80514073" target="_blank" rel="noopener">统计个数</a></p>
+</li>
+</ol>
+<ul>
+<li><code>df.groupby([&#39;id&#39;],as_index=False)[&#39;id&#39;].agg({&#39;cnt&#39;:&#39;count&#39;})</code></li>
+<li><code>df[&#39;id&#39;].value_counts()</code></li>
+</ul>
+<ol start="10">
+<li>datetime</li>
+</ol>
+<ul>
+<li><code>pd.to_datetime(df)</code>：将str转换为datetime</li>
+<li><code>df.dt.year</code>: 获得datetime数据中的year</li>
+<li><code>df.map(lambda x:x.strftime(&#39;%Y&#39;))</code></li>
+</ul>
+<ol start="11">
+<li><p><a href="https://blog.csdn.net/xiaodongxiexie/article/details/53108959" target="_blank" rel="noopener">对行和列的操作</a></p>
+</li>
+<li><p><a href="https://amberwest.github.io/2019/03/05/%E5%88%A0%E9%99%A4DataFrame%E4%B8%AD%E6%9F%90%E5%88%97%E5%80%BC%E4%B8%BANaN%E7%9A%84%E8%AE%B0%E5%BD%95-%E8%A1%8C/" target="_blank" rel="noopener">去掉含nan的行/列</a></p>
+</li>
 </ol>
 
             </div>
