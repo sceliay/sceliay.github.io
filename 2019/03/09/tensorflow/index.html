@@ -8,8 +8,7 @@
         Sceliay&#39;s Blog
     </title>
     <!-- favicon -->
-    
-    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/style.css">
 
     <!-- highlight -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
@@ -17,29 +16,77 @@
     <script>
         hljs.initHighlightingOnLoad()
     </script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+
     <script>
         infiniteScroll()
 
-        // for mobile menu
-        $(function () {
-            $('.social-button').click(function () {
-                if ($('.social-links').hasClass('hide-links')) {
-                    $('.social-links').removeClass('hide-links')
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
                 } else {
-                    $('.social-links').addClass('hide-links')
+                    mobileMainTitle.classList.add('invisibile')
                 }
             })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
         })
     </script>
 </head>
 
-    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <div class="container">
-            <header class="header">
-    <h1 class="title">
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                Sceliay&#39;s Blog
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
         <a href="/" class="logo">
             Sceliay&#39;s Blog
         </a>
@@ -48,49 +95,48 @@
         Welcome to my blog!
     </h2>
 
-    <nav class="links">
-        <button class="social-button">
-            menu
-        </button>
-        <ul class="social-links hide-links">
+    <div class="links">
+        <ul>
             
-                <li>
-                    <a href="https://github.com/sceliay">
-                        Github
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="https://weibo.com/sceliayry">
-                        Weibo
-                    </a>
-                </li>
-                
+            <li>
+                <a href="https://github.com/sceliay">
+                    Github
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://weibo.com/sceliayry">
+                    Weibo
+                </a>
+            </li>
+            
         </ul>
-    </nav>
+    </div>
 </header>
-                <main class="main">
-                    <article class="post">
+        <main class="main">
+            <article class="post">
     
-        <h4 class="post-cat">
-            <a href="/categories/Machine-Learning/">
-                Machine Learning
-            </a>
-        </h4>
-        
-            <h2 class="post-title">
-                Tensorflow 课堂笔记
-            </h2>
-            <ul class="post-date">
-                <li>
-                    2019-03-09
-                </li>
-                <li>
-                    Sceliay
-                </li>
-            </ul>
-            <div class="post-content">
-                <p>最近COURSERA上面开了<a href="https://www.coursera.org/learn/introduction-tensorflow/home/welcome" target="_blank" rel="noopener">Tensorflow的课程</a>，便去学习了一下。Github上面也放了<a href="https://github.com/lmoroney/dlaicourse">课堂笔记</a></p>
+    
+    <h4 class="post-cat">
+        <a href="/categories/Machine-Learning/">
+            Machine Learning
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        Tensorflow 课堂笔记
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-03-09
+        </li>
+        <li>
+            Sceliay
+        </li>
+    </ul>
+    <div class="post-content">
+        <p>最近COURSERA上面开了<a href="https://www.coursera.org/learn/introduction-tensorflow/home/welcome" target="_blank" rel="noopener">Tensorflow的课程</a>，便去学习了一下。Github上面也放了<a href="https://github.com/lmoroney/dlaicourse">课堂笔记</a></p>
 <h1 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h1><p>介绍了一下AI以及Tensorflow。</p>
 <ul>
 <li><p>Import</p>
@@ -137,35 +183,35 @@
 </ul>
 <h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><p>Human or hourse:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import os</span><br><span class="line">import zipfile</span><br><span class="line"></span><br><span class="line">DESIRED_ACCURACY = 0.999</span><br><span class="line"></span><br><span class="line">!wget --no-check-certificate \</span><br><span class="line">    &quot;https://storage.googleapis.com/laurencemoroney-blog.appspot.com/happy-or-sad.zip&quot; \</span><br><span class="line">    -O &quot;/tmp/happy-or-sad.zip&quot;</span><br><span class="line"></span><br><span class="line">zip_ref = zipfile.ZipFile(&quot;/tmp/happy-or-sad.zip&quot;, &apos;r&apos;)</span><br><span class="line">zip_ref.extractall(&quot;/tmp/h-or-s&quot;)</span><br><span class="line">zip_ref.close()</span><br><span class="line"></span><br><span class="line">class myCallback(tf.keras.callbacks.Callback):</span><br><span class="line">  def on_epoch_end(self, epoch, logs=&#123;&#125;):</span><br><span class="line">    if(logs.get(&apos;acc&apos;)&gt;DESIRED_ACCURACY):</span><br><span class="line">      print(&quot;\nReached 99.9% accuracy so cancelling training!&quot;)</span><br><span class="line">      self.model.stop_training = True</span><br><span class="line"></span><br><span class="line">callbacks = myCallback()</span><br><span class="line"></span><br><span class="line">model = tf.keras.models.Sequential([</span><br><span class="line">    tf.keras.layers.Conv2D(16, (3,3), activation=&apos;relu&apos;, input_shape=(150, 150, 3)),</span><br><span class="line">    tf.keras.layers.MaxPooling2D(2, 2),</span><br><span class="line">    tf.keras.layers.Conv2D(32, (3,3), activation=&apos;relu&apos;),</span><br><span class="line">    tf.keras.layers.MaxPooling2D(2,2),</span><br><span class="line">    tf.keras.layers.Conv2D(32, (3,3), activation=&apos;relu&apos;),</span><br><span class="line">    tf.keras.layers.MaxPooling2D(2,2),</span><br><span class="line">    tf.keras.layers.Flatten(),</span><br><span class="line">    tf.keras.layers.Dense(512, activation=&apos;relu&apos;),</span><br><span class="line">    tf.keras.layers.Dense(1, activation=&apos;sigmoid&apos;)</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">from tensorflow.keras.optimizers import RMSprop</span><br><span class="line"></span><br><span class="line">model.compile(loss=&apos;binary_crossentropy&apos;,</span><br><span class="line">              optimizer=RMSprop(lr=0.001),</span><br><span class="line">              metrics=[&apos;acc&apos;])</span><br><span class="line"></span><br><span class="line">from tensorflow.keras.preprocessing.image import ImageDataGenerator</span><br><span class="line"></span><br><span class="line">train_datagen = ImageDataGenerator(rescale=1/255)</span><br><span class="line"></span><br><span class="line">train_generator = train_datagen.flow_from_directory(</span><br><span class="line">        &quot;/tmp/h-or-s&quot;,  </span><br><span class="line">        target_size=(150, 150), </span><br><span class="line">        batch_size=10,</span><br><span class="line">        class_mode=&apos;binary&apos;)</span><br><span class="line"></span><br><span class="line"># Expected output: &apos;Found 80 images belonging to 2 classes&apos;</span><br><span class="line"></span><br><span class="line">history = model.fit_generator(</span><br><span class="line">      train_generator,</span><br><span class="line">      steps_per_epoch=2,  </span><br><span class="line">      epochs=15,</span><br><span class="line">      verbose=1,</span><br><span class="line">      callbacks=[callbacks])</span><br></pre></td></tr></table></figure></p>
 
-            </div>
+    </div>
 </article>
-
-                </main>
-                <aside class="aside">
-                    <section class="aside-section">
-                        
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
     <h1>Categories</h1>
 
     <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
 
-                    </section>
-                    <section class="aside-section">
-                        
+            </section>
+            <section class="aside-section">
+                
     <h1>Archives</h1>
 
     <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
-                    </section>
-                    <section class="aside-section tag">
-                        
+            </section>
+            <section class="aside-section tag">
+                
     <h1>Tags</h1>
 
     <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
 
-                    </section>
-                </aside>
-        </div>
-    </body>
+            </section>
+        </aside>
+    </div>
+</body>
 
 </html>

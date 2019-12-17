@@ -8,8 +8,7 @@
         Sceliay&#39;s Blog
     </title>
     <!-- favicon -->
-    
-    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="/css/style.css">
 
     <!-- highlight -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
@@ -17,29 +16,77 @@
     <script>
         hljs.initHighlightingOnLoad()
     </script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+
     <script>
         infiniteScroll()
 
-        // for mobile menu
-        $(function () {
-            $('.social-button').click(function () {
-                if ($('.social-links').hasClass('hide-links')) {
-                    $('.social-links').removeClass('hide-links')
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
                 } else {
-                    $('.social-links').addClass('hide-links')
+                    mobileMainTitle.classList.add('invisibile')
                 }
             })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
         })
     </script>
 </head>
 
-    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <div class="container">
-            <header class="header">
-    <h1 class="title">
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                Sceliay&#39;s Blog
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
         <a href="/" class="logo">
             Sceliay&#39;s Blog
         </a>
@@ -48,49 +95,48 @@
         Welcome to my blog!
     </h2>
 
-    <nav class="links">
-        <button class="social-button">
-            menu
-        </button>
-        <ul class="social-links hide-links">
+    <div class="links">
+        <ul>
             
-                <li>
-                    <a href="https://github.com/sceliay">
-                        Github
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="https://weibo.com/sceliayry">
-                        Weibo
-                    </a>
-                </li>
-                
+            <li>
+                <a href="https://github.com/sceliay">
+                    Github
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://weibo.com/sceliayry">
+                    Weibo
+                </a>
+            </li>
+            
         </ul>
-    </nav>
+    </div>
 </header>
-                <main class="main">
-                    <article class="post">
+        <main class="main">
+            <article class="post">
     
-        <h4 class="post-cat">
-            <a href="/categories/Notes/">
-                Notes
-            </a>
-        </h4>
-        
-            <h2 class="post-title">
-                用github+hexo搭建自己的博客
-            </h2>
-            <ul class="post-date">
-                <li>
-                    2018-12-17
-                </li>
-                <li>
-                    Sceliay
-                </li>
-            </ul>
-            <div class="post-content">
-                <p>整个过程主要是参考了<a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">我是如何利用Github Pages搭建起我的博客，细数一路的坑</a>。但是在搭建的过程中，还是遇到了很多问题，所以写个笔记记录一下。</p>
+    
+    <h4 class="post-cat">
+        <a href="/categories/Notes/">
+            Notes
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        用github+hexo搭建自己的博客
+    </h2>
+    <ul class="post-date">
+        <li>
+            2018-12-17
+        </li>
+        <li>
+            Sceliay
+        </li>
+    </ul>
+    <div class="post-content">
+        <p>整个过程主要是参考了<a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">我是如何利用Github Pages搭建起我的博客，细数一路的坑</a>。但是在搭建的过程中，还是遇到了很多问题，所以写个笔记记录一下。</p>
 <h3 id="一-创建Github-Pages"><a href="#一-创建Github-Pages" class="headerlink" title="一. 创建Github Pages"></a>一. 创建Github Pages</h3><p>这一步可以参考<a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">原文</a></p>
 <h3 id="二-安装Hexo"><a href="#二-安装Hexo" class="headerlink" title="二. 安装Hexo"></a>二. 安装Hexo</h3><ol>
 <li>首先安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>和<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git</a></li>
@@ -101,35 +147,35 @@
 <li>部署到github上<br>原文说的<code>hexo d</code>，我使用后并没有什么用。然后很暴力的把<code>hexo g</code>生成的public文件夹里面的所有内容，放到’*.github.io’的目录下，然后更新到github上面，就可以了。虽然更新有点麻烦，不过至少可以用了。如果有更好的办法，可以私信给我嘛~</li>
 </ol>
 
-            </div>
+    </div>
 </article>
-
-                </main>
-                <aside class="aside">
-                    <section class="aside-section">
-                        
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
     <h1>Categories</h1>
 
     <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
 
-                    </section>
-                    <section class="aside-section">
-                        
+            </section>
+            <section class="aside-section">
+                
     <h1>Archives</h1>
 
     <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
-                    </section>
-                    <section class="aside-section tag">
-                        
+            </section>
+            <section class="aside-section tag">
+                
     <h1>Tags</h1>
 
     <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
 
-                    </section>
-                </aside>
-        </div>
-    </body>
+            </section>
+        </aside>
+    </div>
+</body>
 
 </html>

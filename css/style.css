@@ -77,52 +77,76 @@ code {
 .header .links ul li a:hover {
   color: #f78769;
 }
-.header .social-button {
+.header .ipad-menu {
   display: none;
+  position: fixed;
+  top: 4em;
+  left: -1px;
 }
-.header .hide-links {
-  display: block;
+.header .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 3em);
+  padding: 0 1.5em;
+  height: 3em;
+  z-index: 1;
+  box-shadow: 0px 1px 5px #ddd;
+}
+.header .mobile-menu h3 a {
+  color: #f78769;
+  text-decoration: none;
+  font: 700 1.6rem Lora-Bold;
+  text-shadow: 1px 1px #fff, 2px 2px #f78769;
+}
+.header .mobile-menu h3 a:hover {
+  color: #bbb;
+}
+.header .menu {
+  padding: 0.5em 1em;
+  border: 1px dashed #fff;
+  outline: 5px solid #bbb;
+  background: #bbb;
+  font: 700 14px Lato-Bold;
+  color: #fff;
+  text-transform: upperCase;
+}
+.header .menu::before {
+  content: '';
+  background: url("https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/menu.svg");
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  vertical-align: -3px;
+}
+.header .menu:focus,
+.header .menu:active {
+  background: #f78769;
+  outline: 3px solid #f78769;
+}
+@media screen and (max-width: 1015px) {
+  .header .ipad-menu {
+    display: block;
+  }
 }
 @media screen and (max-width: 640px) {
   .header .title a {
     font-size: 2.5rem;
   }
-  .header .links {
-    border: none;
-  }
-  .header .social-links {
-    margin-top: 9px;
-    padding-top: 9px !important;
-    text-align: left;
-    border-top: 1px dashed #ddd;
-  }
-  .header .hide-links {
+  .header .ipad-menu {
     display: none;
   }
-  .header .social-button {
-    display: block;
-    margin: 0 auto;
-    padding: 0.75em 1em;
-    border: 1px dashed #fff;
-    outline: 5px solid #bbb;
-    background: #bbb;
-    font: 700 13px Lato-Bold;
-    color: #fff;
-    text-transform: upperCase;
+  .header .mobile-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .header .social-button::before {
-    content: '';
-    background: url("https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/menu.svg");
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 3px;
-    vertical-align: -3px;
-  }
-  .header .social-button:focus,
-  .header .social-button:active {
-    background: #f78769;
-    outline: 5px solid #f78769;
+  .header .mobile-menu .menu {
+    padding: 0.2em 0.5em;
+    font: 700 12px Lato-Bold;
+    outline: 3px solid #bbb;
   }
 }
 .post {
@@ -144,7 +168,16 @@ code {
   transform: translate(-50%, -18px);
 }
 .post .post-cat {
+  display: inline-block;
   margin: 0 0 5px;
+}
+.post .post-cat:first-of-type::after {
+  content: "\00B7";
+  margin: 0 0.75em;
+  color: #f78769;
+}
+.post .post-cat:last-of-type::after {
+  content: '';
 }
 .post .post-cat a {
   font: 700 13px Lato-Bold;
@@ -239,6 +272,33 @@ code {
   width: 25%;
   float: right;
 }
+.close {
+  display: none;
+  position: absolute;
+  right: 1.5em;
+  top: 1em;
+  width: 24px;
+  height: 24px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 10px;
+  content: ' ';
+  height: 24px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
 .aside-section {
   margin: 0 0 3em;
 }
@@ -288,7 +348,35 @@ code {
 }
 @media screen and (max-width: 1015px) {
   .aside {
-    width: 100%;
+    display: none;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 28%;
+    height: 100vh;
+    padding: 3em 20px 0;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px #ddd;
+  }
+  .aside .close {
+    display: block;
+  }
+}
+@media screen and (max-width: 640px) {
+  .aside {
+    width: calc(100% - 40px);
+    box-shadow: none;
+  }
+  .aside .close {
+    width: 32px;
+    height: 32px;
+  }
+  .aside .close:before,
+  .aside .close:after {
+    left: 15px;
+    height: 33px;
   }
 }
 body {
@@ -309,6 +397,12 @@ body {
 .container .main {
   width: 70%;
   float: left;
+}
+.invisibile {
+  visibility: hidden;
+}
+.hidden {
+  display: none;
 }
 @media screen and (max-width: 1015px) {
   .container .main {
