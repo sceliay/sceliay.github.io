@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="machine learning">
+    <title>
+        Sceliay&#39;s Blog
+    </title>
+    <!-- favicon -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Sceliay&#39;s Blog
+        </a>
+    </h1>
+    <h2 class="desc">
+        Welcome to my blog!
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="https://github.com/sceliay">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://weibo.com/sceliayry">
+                        Weibo
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+        <h4 class="post-cat">
+            <a href="/categories/Machine-Learning/">
+                Machine Learning
+            </a>
+        </h4>
+        
+            <h2 class="post-title">
+                Pytorch 模型
+            </h2>
+            <ul class="post-date">
+                <li>
+                    2019-12-17
+                </li>
+                <li>
+                    Sceliay
+                </li>
+            </ul>
+            <div class="post-content">
+                <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p>参考：<a href="https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch/blob/master/chapter2_PyTorch-Basics/PyTorch-introduction.ipynb">code of learn deep learning with pytroch</a></p>
+<h1 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h1><p>Sequential 构建序列化模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">seq_net = nn.Sequential(</span><br><span class="line">	nn.Linear(2,4),</span><br><span class="line">	nn.Tanh(),</span><br><span class="line">	nn.Linear(4,1)</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>序列模块可以通过索引访问每一层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">seq_net[0] # 第一层</span><br><span class="line">[out]: Linear(in_features=2, out_features=4)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印权重</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w0 = seq_net[0].weight</span><br><span class="line">print(w0)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>训练模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 通过 parameters 可以取得模型的参数</span><br><span class="line">param = seq_net.parameters()</span><br><span class="line"></span><br><span class="line"># 定义优化器</span><br><span class="line">optim = torch.optim.SGD(param, 1.)</span><br><span class="line"></span><br><span class="line"># 训练 10000 次</span><br><span class="line">for e in range(10000):</span><br><span class="line">    out = seq_net(Variable(x))</span><br><span class="line">    loss = criterion(out, Variable(y))</span><br><span class="line">    optim.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optim.step()</span><br><span class="line">    if (e + 1) % 1000 == 0:</span><br><span class="line">        print(&apos;epoch: &#123;&#125;, loss: &#123;&#125;&apos;.format(e+1, loss.data))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存参数和模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 将参数和模型保存在一起</span><br><span class="line">torch.save(seq_net, &apos;save_seq_net.pth&apos;)</span><br><span class="line"></span><br><span class="line"># 读取保存的模型</span><br><span class="line">seq_net1 = torch.load(&apos;save_seq_net.pth&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 保存模型参数</span><br><span class="line">torch.save(seq_net.state_dict(), &apos;save_seq_net_params.pth&apos;)</span><br><span class="line"></span><br><span class="line"># 先定义模型，再读取参数</span><br><span class="line">seq_net2 = nn.Sequential(</span><br><span class="line">    nn.Linear(2, 4),</span><br><span class="line">    nn.Tanh(),</span><br><span class="line">    nn.Linear(4, 1)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">seq_net2.load_state_dict(torch.load(&apos;save_seq_net_params.pth&apos;))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>更加灵活的模型定义方式。使用 Module 的模板：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class 网络名字(nn.Module):</span><br><span class="line">    def __init__(self, 一些定义的参数):</span><br><span class="line">        super(网络名字, self).__init__()</span><br><span class="line">        self.layer1 = nn.Linear(num_input, num_hidden)</span><br><span class="line">        self.layer2 = nn.Sequential(...)</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        定义需要用的网络层</span><br><span class="line"></span><br><span class="line">    def forward(self, x): # 定义前向传播</span><br><span class="line">        x1 = self.layer1(x)</span><br><span class="line">        x2 = self.layer2(x)</span><br><span class="line">        x = x1 + x2</span><br><span class="line">        ...</span><br><span class="line">        return x</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>实现上述神经网络：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class module_net(nn.Module):</span><br><span class="line">    def __init__(self, num_input, num_hidden, num_output):</span><br><span class="line">        super(module_net, self).__init__()</span><br><span class="line">        self.layer1 = nn.Linear(num_input, num_hidden)</span><br><span class="line">        </span><br><span class="line">        self.layer2 = nn.Tanh()</span><br><span class="line">        </span><br><span class="line">        self.layer3 = nn.Linear(num_hidden, num_output)</span><br><span class="line">        </span><br><span class="line">    def forward(self, x):</span><br><span class="line">        x = self.layer1(x)</span><br><span class="line">        x = self.layer2(x)</span><br><span class="line">        x = self.layer3(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mo_net = module_net(2, 4, 1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问模型中的某层可以直接通过名字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 第一层</span><br><span class="line">l1 = mo_net.layer1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打印权值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(l1.weight)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>训练模型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 定义优化器</span><br><span class="line">optim = torch.optim.SGD(mo_net.parameters(), 1.)</span><br><span class="line"></span><br><span class="line"># 训练1000次</span><br><span class="line">for e in range(10000):</span><br><span class="line">    out = mo_net(Variable(x))</span><br><span class="line">    loss = criterion(out, Variable(y))</span><br><span class="line">    optim.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optim.step()</span><br><span class="line">    if (e + 1) % 1000 == 0:</span><br><span class="line">        print(&apos;epoch: &#123;&#125;, loss: &#123;&#125;&apos;.format(e+1, loss.data[0]))</span><br><span class="line"></span><br><span class="line"># 保存模型</span><br><span class="line">torch.save(mo_net.state_dict(), &apos;module_net.pth&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载 MNIST 数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def data_tf(x):</span><br><span class="line">    x = np.array(x, dtype=&apos;float32&apos;) / 255</span><br><span class="line">    x = (x - 0.5) / 0.5 # 标准化，这个技巧之后会讲到</span><br><span class="line">    x = x.reshape((-1,)) # 拉平</span><br><span class="line">    x = torch.from_numpy(x)</span><br><span class="line">    return x</span><br><span class="line"></span><br><span class="line">train_set = mnist.MNIST(&apos;./data&apos;, train=True, transform=data_tf, download=True) # 重新载入数据集，申明定义的数据变换</span><br><span class="line">test_set = mnist.MNIST(&apos;./data&apos;, train=False, transform=data_tf, download=True)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 DataLoader 定义一个数据迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from torch.utils.data import DataLoader</span><br><span class="line">train_data = DataLoader(train_set, batch_size=64, shuffle=True)</span><br><span class="line">test_data = DataLoader(test_set, batch_size=128, shuffle=False)</span><br><span class="line"></span><br><span class="line"># iter()获取迭代对象的迭代器，next()获取下一条数据</span><br><span class="line">a, a_label = next(iter(train_data))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绘制图像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.title(&apos;train loss&apos;)</span><br><span class="line">plt.plot(np.arange(len(losses)), losses)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="参数初始化"><a href="#参数初始化" class="headerlink" title="参数初始化"></a>参数初始化</h1><ul>
+<li><p>可以通过<code>.weigth</code>和<code>.bias</code>访问网络的权值，并通过<code>.data</code>访问其数值，并替换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 定义一个 Sequential 模型</span><br><span class="line">net1 = nn.Sequential(</span><br><span class="line">    nn.Linear(30, 40),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(40, 50),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(50, 10)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 定义一个 Tensor 直接对其进行替换</span><br><span class="line">net1[0].weight.data = torch.from_numpy(np.random.uniform(3, 5, size=(40, 30)))</span><br><span class="line"></span><br><span class="line"># 模型中相同类型的层需要相同初始化方式</span><br><span class="line">for layer in net1:</span><br><span class="line">    if isinstance(layer, nn.Linear): # 判断是否是线性层</span><br><span class="line">        param_shape = layer.weight.shape</span><br><span class="line">        layer.weight.data = torch.from_numpy(np.random.normal(0, 0.5, size=param_shape)) </span><br><span class="line">        # 定义为均值为 0，方差为 0.5 的正态分布</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于 Module 的参数化，可以直接像 Sequential 一样对其 Tensor 进行重新定义。如果用循环方式，需要介绍两个属性，children 和 modules, children 只访问到模型定义中的第一层，modules 会访问到最后的结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class sim_net(nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(sim_net, self).__init__()</span><br><span class="line">        self.l1 = nn.Sequential(</span><br><span class="line">            nn.Linear(30, 40),</span><br><span class="line">            nn.ReLU()</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        self.l1[0].weight.data = torch.randn(40, 30) # 直接对某一层初始化</span><br><span class="line">        </span><br><span class="line">        self.l2 = nn.Sequential(</span><br><span class="line">            nn.Linear(40, 50),</span><br><span class="line">            nn.ReLU()</span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        self.l3 = nn.Sequential(</span><br><span class="line">            nn.Linear(50, 10),</span><br><span class="line">            nn.ReLU()</span><br><span class="line">        )</span><br><span class="line">    </span><br><span class="line">    def forward(self, x):</span><br><span class="line">        x = self.l1(x)</span><br><span class="line">        x =self.l2(x)</span><br><span class="line">        x = self.l3(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net2 = sim_net()</span><br><span class="line"></span><br><span class="line"># 访问 children</span><br><span class="line">for i in net2.children():</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"># 访问 modules</span><br><span class="line">for i in net2.modules():</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"># 迭代初始化</span><br><span class="line">for layer in net2.modules():</span><br><span class="line">    if isinstance(layer, nn.Linear):</span><br><span class="line">        param_shape = layer.weight.shape</span><br><span class="line">        layer.weight.data = torch.from_numpy(np.random.normal(0, 0.5, size=param_shape))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>torch.nn.init</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from torch.nn import init</span><br><span class="line"></span><br><span class="line">init.xavier_uniform(net1[0].weight)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h1><ul>
+<li><p>随机梯度下降</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def sgd_update(parameters, lr):</span><br><span class="line">    for param in parameters:</span><br><span class="line">        param.data = param.data - lr * param.grad.data</span><br><span class="line"></span><br><span class="line">optimzier = torch.optim.SGD(net.parameters(), 1e-2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动量法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def sgd_momentum(parameters, vs, lr, gamma):</span><br><span class="line">    for param, v in zip(parameters, vs):</span><br><span class="line">        v[:] = gamma * v + lr * param.grad.data</span><br><span class="line">        param.data = param.data - v</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.SGD(net.parameters(), lr=1e-2, momentum=0.9) # 加动量</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Adagrad</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def sgd_adagrad(parameters, sqrs, lr):</span><br><span class="line">    eps = 1e-10</span><br><span class="line">    for param, sqr in zip(parameters, sqrs):</span><br><span class="line">        sqr[:] = sqr + param.grad.data ** 2</span><br><span class="line">        div = lr / torch.sqrt(sqr + eps) * param.grad.data</span><br><span class="line">        param.data = param.data - div</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.Adagrad(net.parameters(), lr=1e-2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RMSProp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def rmsprop(parameters, sqrs, lr, alpha):</span><br><span class="line">    eps = 1e-10</span><br><span class="line">    for param, sqr in zip(parameters, sqrs):</span><br><span class="line">        sqr[:] = alpha * sqr + (1 - alpha) * param.grad.data ** 2</span><br><span class="line">        div = lr / torch.sqrt(sqr + eps) * param.grad.data</span><br><span class="line">        param.data = param.data - div</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.RMSprop(net.parameters(), lr=1e-3, alpha=0.9)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Adadelta</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def adadelta(parameters, sqrs, deltas, rho):</span><br><span class="line">    eps = 1e-6</span><br><span class="line">    for param, sqr, delta in zip(parameters, sqrs, deltas):</span><br><span class="line">        sqr[:] = rho * sqr + (1 - rho) * param.grad.data ** 2</span><br><span class="line">        cur_delta = torch.sqrt(delta + eps) / torch.sqrt(sqr + eps) * param.grad.data</span><br><span class="line">        delta[:] = rho * delta + (1 - rho) * cur_delta ** 2</span><br><span class="line">        param.data = param.data - cur_delta</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.Adadelta(net.parameters(), rho=0.9)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Adam</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def adam(parameters, vs, sqrs, lr, t, beta1=0.9, beta2=0.999):</span><br><span class="line">    eps = 1e-8</span><br><span class="line">    for param, v, sqr in zip(parameters, vs, sqrs):</span><br><span class="line">        v[:] = beta1 * v + (1 - beta1) * param.grad.data</span><br><span class="line">        sqr[:] = beta2 * sqr + (1 - beta2) * param.grad.data ** 2</span><br><span class="line">        v_hat = v / (1 - beta1 ** t)</span><br><span class="line">        s_hat = sqr / (1 - beta2 ** t)</span><br><span class="line">        param.data = param.data - lr * v_hat / torch.sqrt(s_hat + eps)</span><br><span class="line"></span><br><span class="line">optimizer = torch.optim.Adam(net.parameters(), lr=1e-3)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+            </div>
+</article>
+
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    </body>
+
+</html>
