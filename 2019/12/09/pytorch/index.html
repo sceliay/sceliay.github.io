@@ -136,9 +136,7 @@
         </li>
     </ul>
     <div class="post-content">
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<p>参考：<a href="https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch/blob/master/chapter2_PyTorch-Basics/PyTorch-introduction.ipynb">code of learn deep learning with pytroch</a></p>
+        <p>参考：<a href="https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch/blob/master/chapter2_PyTorch-Basics/PyTorch-introduction.ipynb">code of learn deep learning with pytroch</a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>conda: <code>conda install pytorch torchvision -c pytorch</code><br>pip: <code>pip install http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl</code>, <code>pip install torchvision</code><br><a href="https://pytorch.org/" target="_blank" rel="noopener">官网</a></p>
 <h1 id="Tensor-amp-Variable"><a href="#Tensor-amp-Variable" class="headerlink" title="Tensor &amp; Variable"></a>Tensor &amp; Variable</h1><ol>
 <li><p>Pytorch 是一个拥有强力GPU加速的张量和动态构建网络的库，其主要构建是张量。</p>
@@ -149,7 +147,7 @@
 </li>
 </ol>
 <p>使用第一种方式将 tensor 放到 GPU 上的时候会将数据类型转换成定义的类型，而是用第二种方式能够直接将 tensor 放到 GPU 上，类型跟之前保持一致</p>
-<ol start="3">
+<ol>
 <li><p>将 tensor 放回 CPU</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cpu_tensor = gpu_tensor.cpu()</span><br></pre></td></tr></table></figure>
 </li>
@@ -175,7 +173,7 @@
 </li>
 </ol>
 <p>这里做了两次自动求导，16 为第一次的梯度 8 和第二次的梯度 8 加和结果。</p>
-<ol start="4">
+<ol>
 <li>练习<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">x = Variable(torch.FloatTensor([2, 3]), requires_grad=True)</span><br><span class="line">k = Variable(torch.zeros(2))</span><br><span class="line"></span><br><span class="line">k[0] = x[0] ** 2 + 3 * x[1]</span><br><span class="line">k[1] = x[1] ** 2 + 2 * x[0]</span><br><span class="line"></span><br><span class="line">j = torch.zeros(2, 2)</span><br><span class="line"></span><br><span class="line">k.backward(torch.FloatTensor([1, 0]), retain_graph=True)</span><br><span class="line">j[0] = x.grad.data</span><br><span class="line"></span><br><span class="line">x.grad.data.zero_() # 归零之前求得的梯度</span><br><span class="line"></span><br><span class="line">k.backward(torch.FloatTensor([0, 1]))</span><br><span class="line">j[1] = x.grad.data</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
