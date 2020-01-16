@@ -142,7 +142,7 @@
 <p>这样的模型会导致最终 decoder 获得的是 encoder 最后输出的 hidden state，当文本过长时，容易遗忘开始输入的字段。</p>
 <p>Attention 可以作为 encoder 与 decoder 的中间接口，为 decoder 提供每一个 encoder hidden state 的信息。如此，模型能够选择性的关注有用的部分，并学习 encoder 与 decoder 中字句的对齐。</p>
 <p>Attention 有两种类型： global attention 使用所有的 encoder hidden state，local attention 只使用部分。 Attention layer 的实现可分为4个步骤。</p>
-<ol start="0">
+<ol>
 <li><p>准备 hidden states.<br>例子中包含4个 encoder hidden states 和 current decoder hidden state.<br>Note: 最后一个 encoder hidden state 作为 decoder 的第一个 time step 输入。 第一个 time step 的输出被称为第一个 decoder hidden state.</p>
 </li>
 <li><p>计算每个 encoder hidden state 的 score.<br>可以通过一个 score function（也被称为 alignment score function 或 alignment model）来计算 score。在本例中，score function 为 dot product。更多 <a href="https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3#ba24" target="_blank" rel="noopener">score function</a>。<br>计算公式：<code>score = decoder hidden state x encoder hidden state</code></p>
@@ -156,7 +156,7 @@
 </li>
 </ol>
 <p>这里，表示第一个翻译的词与嵌入<code>[5,0,1]</code>的输入相对应。</p>
-<ol start="4">
+<ol>
 <li><p>将 alignment vectors 相加。<br>将 alignment vectors 相加获得 context vector。</p>
 </li>
 <li><p>将 context vector 输入 decoder.</p>
@@ -182,7 +182,7 @@
 </li>
 </ul>
 <p>Nots: 在神经网络中，权值常由合适的随机分布来初始化，如 Gaussian, Xavier 和 Kaiming 分布。</p>
-<ol start="3">
+<ol>
 <li>计算 key, query 和 value<br>计算公式为：<code>input x weight</code></li>
 </ol>
 <ul>
@@ -197,12 +197,12 @@
 </li>
 </ul>
 <p>Note: 有时候也可以加上偏置。</p>
-<ol start="4">
+<ol>
 <li>计算 Input 1 的 attention score<br>计算公式为：<code>Input 1&#39;s query x keys^T</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">            [0, 4, 2]</span><br><span class="line">[1, 0, 2] x [1, 4, 3] = [2, 4, 4]</span><br><span class="line">            [1, 0, 1]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>Note: 上述为 dot product attention, 其他 <a href="https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3" target="_blank" rel="noopener">score function</a> 有 scaled dot product 和 additive/concat。</p>
-<ol start="5">
+<ol>
 <li><p>计算softmax<br>对 attention score 进行 softmax 计算:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">softmax([2, 4, 4]) = [0.0, 0.5, 0.5]</span><br></pre></td></tr></table></figure>
 </li>
@@ -232,7 +232,7 @@
                 
     <h1>Archives</h1>
 
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
             </section>
@@ -240,7 +240,7 @@
                 
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
 
             </section>
         </aside>

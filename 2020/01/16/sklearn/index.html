@@ -114,127 +114,35 @@
     </div>
 </header>
         <main class="main">
-            
-<section class="posts">
+            <article class="post">
     
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/12/17/pytorch3/">
-                            Pytorch 序列
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 17, 2019
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/12/17/pytorch3/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/12/17/pytorch2/">
-                            Pytorch 模型
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 17, 2019
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/12/17/pytorch2/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/12/09/pytorch/">
-                            Pytorch 基本概念
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 9, 2019
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/12/09/pytorch/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/Machine-Learning/">
-                        Machine Learning
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/12/04/attention/">
-                            Attention
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            December 4, 2019
-                        </li>
-                        <li>
-                            Sceliay
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/12/04/attention/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    
+    <h4 class="post-cat">
+        <a href="/categories/Machine-Learning/">
+            Machine Learning
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        sklearn
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-01-16
+        </li>
+        <li>
+            Sceliay
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="Classification-metrics"><a href="#Classification-metrics" class="headerlink" title="Classification metrics"></a>Classification metrics</h1><ol>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics" target="_blank" rel="noopener">链接</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import metrics</span><br><span class="line"></span><br><span class="line">metrics.roc_auc_score(y_true,y_pre)</span><br><span class="line"></span><br><span class="line"># F1 = 2 * (precision * recall) / (precision + recall)</span><br><span class="line">metrics.f1_score(y_true,y_pre)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="Regression-metrics"><a href="#Regression-metrics" class="headerlink" title="Regression metrics"></a>Regression metrics</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">metrics.mean_absolute_error(y_true,y_pre)</span><br><span class="line">metrics.mean_squared_error(y_true,y_pre)</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
         </main>
         <aside class="aside">
             <div class="close"></div>

@@ -147,7 +147,7 @@
 <li><code>str(2) = &#39;2&#39;</code></li>
 <li><code>int(&#39;2&#39;) = 2</code></li>
 </ul>
-<ol start="3">
+<ol>
 <li>字符串的提取：</li>
 </ol>
 <ul>
@@ -160,7 +160,7 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
+<ol>
 <li>字符串的拼接：</li>
 </ol>
 <ul>
@@ -178,7 +178,7 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> str = &apos;There are &#123;fruit1&#125;, &#123;fruit2&#125;, &#123;fruit3&#125; on the table&apos;</span><br><span class="line">str.format(fruit1=fruit1,fruit2=fruit2,fruit3=fruit3)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="5">
+<ol>
 <li><p>遍历list：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">Counter([1,2,2,2,2,3,3,3,4,4,4,4])</span><br><span class="line"></span><br><span class="line"># Counter(&#123;2: 4, 4: 4, 3: 3, 1: 1&#125;)</span><br></pre></td></tr></table></figure>
 </li>
@@ -205,7 +205,7 @@
 </ul>
 <p>除此之外，del还可以删除指定范围内的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str=[0,1,2,3,4,5,6]</span><br><span class="line">del str[2:4]  #删除从第2个元素开始，到第4个为止的元素(但是不包括尾部元素)</span><br><span class="line">str</span><br><span class="line"># [0, 1, 4, 5, 6]</span><br></pre></td></tr></table></figure></p>
 <p>del 也可以删除整个数据对象(列表、集合等)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str=[0,1,2,3,4,5,6]</span><br><span class="line">del str</span><br><span class="line">str         #删除后，找不到对象</span><br></pre></td></tr></table></figure></p>
-<ol start="10">
+<ol>
 <li><p><a href="https://blog.csdn.net/quintind/article/details/79850455" target="_blank" rel="noopener">LabelEncoder</a><br>LabelEncoder是用来对分类型特征值进行编码，即对不连续的数值或文本进行编码。其中包含以下常用方法：<br><code>fit(y)</code> ：fit可看做一本空字典，y可看作要塞到字典中的词。<br><code>fit_transform(y)</code>：相当于先进行fit再进行transform，即把y塞到字典中去以后再进行transform得到索引值。<br><code>inverse_transform(y)</code>：根据索引值y获得原始数据。<br><code>transform(y)</code> ：将y转变成索引值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; le = preprocessing.LabelEncoder()</span><br><span class="line">&gt;&gt;&gt; le.fit([&quot;paris&quot;, &quot;paris&quot;, &quot;tokyo&quot;, &quot;amsterdam&quot;])</span><br><span class="line">LabelEncoder()</span><br><span class="line">&gt;&gt;&gt; list(le.classes_)</span><br><span class="line">[&apos;amsterdam&apos;, &apos;paris&apos;, &apos;tokyo&apos;]</span><br><span class="line">&gt;&gt;&gt; le.transform([&quot;tokyo&quot;, &quot;tokyo&quot;, &quot;paris&quot;]) </span><br><span class="line">array([2, 2, 1]...)</span><br><span class="line">&gt;&gt;&gt; list(le.inverse_transform([2, 2, 1]))</span><br><span class="line">[&apos;tokyo&apos;, &apos;tokyo&apos;, &apos;paris&apos;]</span><br></pre></td></tr></table></figure>
 </li>
@@ -225,7 +225,7 @@
 <li><p>combinations和permutations返回的是对象地址，iterators（迭代器），可以用list()转换为list</p>
 </li>
 </ul>
-<ol start="13">
+<ol>
 <li><p>删除内存<br>del 可以删除多个变量，del a,b,c,d<br>办法：<br>import gc （garbage collector）<br>del a<br>gc.collect()<br>马上内存就释放了。</p>
 </li>
 <li><p><code>enumerate()</code> 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
@@ -239,7 +239,7 @@
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from itertools import chain</span><br><span class="line">mylist = list(chain(*lst))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="15">
+<ol>
 <li><p><a href="https://www.cnblogs.com/herbert/p/3468294.html" target="_blank" rel="noopener">namedtuple</a><br>namedtuple创建一个和tuple类似的对象，而且对象拥有可以访问的属性。这对象更像带有数据属性的类，不过数据属性是只读的。<br>eg: <code>TPoint = namedtuple(&#39;TPoint&#39;, [&#39;x&#39;, &#39;y&#39;])</code> 创建一个TPoint类型，而且带有属性x, y.</p>
 </li>
 <li><p><a href="http://www.runoob.com/python/python-func-isinstance.html" target="_blank" rel="noopener">isinstance</a><br>用来判断一个对象是否是一个已知的类型，类似 type()。<br><code>isinstance()</code> 与 <code>type()</code> 区别：</p>
@@ -249,6 +249,13 @@
 <li><code>type()</code> 不会认为子类是一种父类类型，不考虑继承关系。</li>
 <li><code>isinstance()</code> 会认为子类是一种父类类型，考虑继承关系。<br>使用：<code>isinstance(object, classinfo)</code></li>
 </ul>
+<ol>
+<li><p><code>lambda</code>,<code>map</code>, <code>filter</code>, <code>reduce</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># lambda</span><br><span class="line">square = lambda number: number*number</span><br><span class="line"></span><br><span class="line"># map</span><br><span class="line">def inefficientSquare(number):</span><br><span class="line">  result = number*number</span><br><span class="line">  return result</span><br><span class="line">map(inefficientSquare,my_list)</span><br><span class="line"></span><br><span class="line"># map, filter, reduce</span><br><span class="line">number = [1,2,3,4,5,6]</span><br><span class="line">odd_numbers = []</span><br><span class="line">squared_odd_numbers = []</span><br><span class="line">total = 0</span><br><span class="line"></span><br><span class="line"># filter for odd numbers:</span><br><span class="line">for number in numbers:</span><br><span class="line">  if number%2 == 1:</span><br><span class="line">    odd_numbers.append(number)</span><br><span class="line"></span><br><span class="line">odd_numbers = filter(lambda n:n%2==1,numbers)</span><br><span class="line"></span><br><span class="line"># square all odd numbers:</span><br><span class="line">for number in odd_numbers:</span><br><span class="line">  squared_odd_numbers.append(number*number)</span><br><span class="line"></span><br><span class="line">squared_odd_numbers = map(lambda n:n*n,odd_numbers)</span><br><span class="line"></span><br><span class="line"># calculate total</span><br><span class="line">for number in squared_odd_numbers:</span><br><span class="line">  total += number</span><br><span class="line"></span><br><span class="line">total = reduce(lambda acc, n: acc+n, suqared_odd_numbers)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://blog.51cto.com/alsww/1787848" target="_blank" rel="noopener">判断实列类型</a><br><code>isinstance(x,int)</code></p>
+</li>
+</ol>
 
     </div>
 </article>
@@ -266,7 +273,7 @@
                 
     <h1>Archives</h1>
 
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
             </section>
@@ -274,7 +281,7 @@
                 
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
 
             </section>
         </aside>
