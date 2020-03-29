@@ -142,7 +142,7 @@
 <p>这样的模型会导致最终 decoder 获得的是 encoder 最后输出的 hidden state，当文本过长时，容易遗忘开始输入的字段。</p>
 <p>Attention 可以作为 encoder 与 decoder 的中间接口，为 decoder 提供每一个 encoder hidden state 的信息。如此，模型能够选择性的关注有用的部分，并学习 encoder 与 decoder 中字句的对齐。</p>
 <p>Attention 有两种类型： global attention 使用所有的 encoder hidden state，local attention 只使用部分。 Attention layer 的实现可分为4个步骤。</p>
-<ol>
+<ul>
 <li><p>准备 hidden states.<br>例子中包含4个 encoder hidden states 和 current decoder hidden state.<br>Note: 最后一个 encoder hidden state 作为 decoder 的第一个 time step 输入。 第一个 time step 的输出被称为第一个 decoder hidden state.</p>
 </li>
 <li><p>计算每个 encoder hidden state 的 score.<br>可以通过一个 score function（也被称为 alignment score function 或 alignment model）来计算 score。在本例中，score function 为 dot product。更多 <a href="https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3#ba24" target="_blank" rel="noopener">score function</a>。<br>计算公式：<code>score = decoder hidden state x encoder hidden state</code></p>
@@ -154,22 +154,20 @@
 <li><p>将每个 encoder hidden state 乘以对应 softmaxed score.<br>通过 encoder hidden state 乘以相应 softmaxed score，可以获得 alignment vector 或 annotation vector。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">encoder  score  score^  alignment</span><br><span class="line">---------------------------------</span><br><span class="line">[0, 1, 1]   15      0   [0, 0, 0]</span><br><span class="line">[5, 0, 1]   60      1   [5, 0, 1]</span><br><span class="line">[1, 1, 0]   15      0   [0, 0, 0]</span><br><span class="line">[0, 5, 1]   35      0   [0, 0, 0]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+</ul>
 <p>这里，表示第一个翻译的词与嵌入<code>[5,0,1]</code>的输入相对应。</p>
-<ol>
+<ul>
 <li><p>将 alignment vectors 相加。<br>将 alignment vectors 相加获得 context vector。</p>
 </li>
 <li><p>将 context vector 输入 decoder.</p>
 </li>
-</ol>
+</ul>
 <h1 id="Self-attention"><a href="#Self-attention" class="headerlink" title="Self-attention"></a>Self-attention</h1><p>参考：<a href="https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a" target="_blank" rel="noopener">Illustrated: Self-Attention</a></p>
-<ol>
+<ul>
 <li><p>输入<br>例子中，输入为3个4维向量：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input 1: [1, 0, 1, 0] </span><br><span class="line">Input 2: [0, 2, 0, 2]</span><br><span class="line">Input 3: [1, 1, 1, 1]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>初始化权值<br>每个输入有三个表示：key, query, value。例子中，这些表示用3维向量表示，则权值为4*3矩阵。<br>Note: value的维度与输出相同。</p>
-</li>
-</ol>
 <ul>
 <li><p>key 的权值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[0, 0, 1],</span><br><span class="line"> [1, 1, 0],</span><br><span class="line"> [0, 1, 0],</span><br><span class="line"> [1, 1, 0]]</span><br></pre></td></tr></table></figure>
@@ -182,9 +180,8 @@
 </li>
 </ul>
 <p>Nots: 在神经网络中，权值常由合适的随机分布来初始化，如 Gaussian, Xavier 和 Kaiming 分布。</p>
-<ol>
-<li>计算 key, query 和 value<br>计算公式为：<code>input x weight</code></li>
-</ol>
+</li>
+<li><p>计算 key, query 和 value<br>计算公式为：<code>input x weight</code></p>
 <ul>
 <li><p>key:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">               [0, 0, 1]</span><br><span class="line">[1, 0, 1, 0]   [1, 1, 0]   [0, 1, 1]</span><br><span class="line">[0, 2, 0, 2] x [0, 1, 0] = [4, 4, 0]</span><br><span class="line">[1, 1, 1, 1]   [1, 1, 0]   [2, 3, 1]</span><br></pre></td></tr></table></figure>
@@ -197,12 +194,13 @@
 </li>
 </ul>
 <p>Note: 有时候也可以加上偏置。</p>
-<ol>
-<li>计算 Input 1 的 attention score<br>计算公式为：<code>Input 1&#39;s query x keys^T</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">            [0, 4, 2]</span><br><span class="line">[1, 0, 2] x [1, 4, 3] = [2, 4, 4]</span><br><span class="line">            [1, 0, 1]</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+<li><p>计算 Input 1 的 attention score<br>计算公式为：<code>Input 1&#39;s query x keys^T</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">            [0, 4, 2]</span><br><span class="line">[1, 0, 2] x [1, 4, 3] = [2, 4, 4]</span><br><span class="line">            [1, 0, 1]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p>Note: 上述为 dot product attention, 其他 <a href="https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3" target="_blank" rel="noopener">score function</a> 有 scaled dot product 和 additive/concat。</p>
-<ol>
+<ul>
 <li><p>计算softmax<br>对 attention score 进行 softmax 计算:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">softmax([2, 4, 4]) = [0.0, 0.5, 0.5]</span><br></pre></td></tr></table></figure>
 </li>
@@ -214,7 +212,7 @@
 </li>
 <li><p>对于 Input 2 和 Input 3 重复4-7操作<br>Note: query 和 key 的维度需要保持一致，而 value 的维度与 output 一致。</p>
 </li>
-</ol>
+</ul>
 
     </div>
 </article>
