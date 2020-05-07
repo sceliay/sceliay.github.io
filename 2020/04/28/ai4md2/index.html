@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="machine learning">
+    <title>
+        Sceliay&#39;s Blog
+    </title>
+    <!-- favicon -->
+     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+
+    <script>
+        infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                Sceliay&#39;s Blog
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            Sceliay&#39;s Blog
+        </a>
+    </h1>
+    <h2 class="desc">
+        Welcome to my blog!
+    </h2>
+
+    <div class="links">
+        <ul>
+            
+            <li>
+                <a href="https://github.com/sceliay">
+                    Github
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://weibo.com/sceliayry">
+                    Weibo
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/Machine-Learning/">
+            Machine Learning
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        AI for Medicine(2)
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-04-28
+        </li>
+        <li>
+            Sceliay
+        </li>
+    </ul>
+    <div class="post-content">
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h1 id="AI-for-Medical-Prognosis"><a href="#AI-for-Medical-Prognosis" class="headerlink" title="AI for Medical Prognosis"></a>AI for Medical Prognosis</h1><ol>
+<li><p>Linear model</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Import the module &apos;LinearRegression&apos; from sklearn</span><br><span class="line">from sklearn.linear_model import LinearRegression</span><br><span class="line"></span><br><span class="line"># Create an object of type LinearRegression</span><br><span class="line">model = LinearRegression()</span><br><span class="line"></span><br><span class="line"># Import the load_data function from the utils module</span><br><span class="line">from utils import load_data</span><br><span class="line"></span><br><span class="line"># Generate features and labels using the imported function</span><br><span class="line">X, y = load_data(100)</span><br><span class="line"></span><br><span class="line">model.fit(X, y)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Logistic Regression: <code>sklearn.linear_model.LogisticRegression</code></li>
+</ul>
+</li>
+<li><p>Risk score</p>
+<ul>
+<li>Atrial fibrillation: Chads-vasc score</li>
+<li>Liver disease: MELD score</li>
+<li>Heart disease: ASCVD score</li>
+</ul>
+</li>
+<li><p>Measurements</p>
+<ul>
+<li><script type="math/tex; mode=display">c-index = (conordant-0.5\*ties)/permission</script></li>
+</ul>
+</li>
+<li><p>Decision Tree</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import shap</span><br><span class="line">import sklearn</span><br><span class="line">import itertools</span><br><span class="line">import pydotplus</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import seaborn as sns</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from IPython.display import Image </span><br><span class="line">from sklearn.tree import export_graphviz</span><br><span class="line">from sklearn.externals.six import StringIO</span><br><span class="line">from sklearn.tree import DecisionTreeClassifier</span><br><span class="line">from sklearn.ensemble import RandomForestClassifier</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.experimental import enable_iterative_imputer</span><br><span class="line">from sklearn.impute import IterativeImputer, SimpleImputer</span><br><span class="line">#</span><br><span class="line"># We&apos;ll also import some helper functions that will be useful later on.</span><br><span class="line">from util import load_data, cindex</span><br><span class="line">	from sklearn.tree import DecisionTreeClassifier</span><br><span class="line">	dt = DecisionTreeClassifier()</span><br><span class="line">	dt.fit(X,y)</span><br><span class="line">	dt = DecisionTreeClassifier(criterion=&apos;entropy&apos;,</span><br><span class="line">                            max_depth=10,</span><br><span class="line">                            min_samples_split=2</span><br><span class="line">                           )</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>控制树的深度以处理overfitting</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dt_hyperparams = &#123;</span><br><span class="line">    &apos;max_depth&apos;:3,</span><br><span class="line">    &apos;min_samples_split&apos;:2</span><br><span class="line">&#125;</span><br><span class="line">dt_reg = DecisionTreeClassifier(**dt_hyperparams, random_state=10)</span><br><span class="line">dt_reg.fit(X_train_dropped, y_train_dropped)</span><br><span class="line">y_train_preds = dt_reg.predict_proba(X_train_dropped)[:, 1]</span><br><span class="line">y_val_preds = dt_reg.predict_proba(X_val_dropped)[:, 1]</span><br><span class="line">print(f&quot;Train C-Index: &#123;cindex(y_train_dropped.values, y_train_preds)&#125;&quot;)</span><br><span class="line">print(f&quot;Val C-Index (expected &gt; 0.6): &#123;cindex(y_val_dropped.values, y_val_preds)&#125;&quot;)</span><br><span class="line">#</span><br><span class="line"># print tree</span><br><span class="line">from sklearn.externals.six import StringIO</span><br><span class="line">dot_data = StringIO()</span><br><span class="line">export_graphviz(dt_reg, feature_names=X_train_dropped.columns, out_file=dot_data,  </span><br><span class="line">                filled=True, rounded=True, proportion=True, special_characters=True,</span><br><span class="line">                impurity=False, class_names=[&apos;neg&apos;, &apos;pos&apos;], precision=2)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  </span><br><span class="line">Image(graph.create_png())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Random forests</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">rf = RandomForestClassifier(n_estimators=100, random_state=10)</span><br><span class="line">rf.fit(X_train_dropped, y_train_dropped)</span><br><span class="line">#</span><br><span class="line">def random_forest_grid_search(X_train_dropped, y_train_dropped, X_val_dropped, y_val_dropped):</span><br><span class="line">	#</span><br><span class="line">    # Define ranges for the chosen random forest hyperparameters </span><br><span class="line">    hyperparams = &#123;</span><br><span class="line">        &apos;n_estimators&apos;: [1,2,3],</span><br><span class="line">        &apos;max_depth&apos;: [4,5,6],</span><br><span class="line">        &apos;min_samples_leaf&apos;: [1,2,3],</span><br><span class="line">    &#125;    </span><br><span class="line">    fixed_hyperparams = &#123;</span><br><span class="line">        &apos;random_state&apos;: 10,</span><br><span class="line">    &#125;    </span><br><span class="line">    rf = RandomForestClassifier</span><br><span class="line">    best_rf, best_hyperparams = holdout_grid_search(rf, X_train_dropped, y_train_dropped,</span><br><span class="line">                                                    X_val_dropped, y_val_dropped, hyperparams,</span><br><span class="line">                                                    fixed_hyperparams)</span><br><span class="line">    print(f&quot;Best hyperparameters:\n&#123;best_hyperparams&#125;&quot;)</span><br><span class="line">    #</span><br><span class="line">    y_train_best = best_rf.predict_proba(X_train_dropped)[:, 1]</span><br><span class="line">    print(f&quot;Train C-Index: &#123;cindex(y_train_dropped, y_train_best)&#125;&quot;)</span><br><span class="line">    #</span><br><span class="line">    y_val_best = best_rf.predict_proba(X_val_dropped)[:, 1]</span><br><span class="line">    print(f&quot;Val C-Index: &#123;cindex(y_val_dropped, y_val_best)&#125;&quot;)</span><br><span class="line">    #</span><br><span class="line">    # add fixed hyperparamters to best combination of variable hyperparameters</span><br><span class="line">    best_hyperparams.update(fixed_hyperparams)</span><br><span class="line">    #</span><br><span class="line">    return best_rf, best_hyperparams</span><br><span class="line">#</span><br><span class="line">best_rf, best_hyperparams = random_forest_grid_search(X_train_dropped, y_train_dropped, X_val_dropped, y_val_dropped)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Ensembling </p>
+<ul>
+<li>desision tree </li>
+<li>gradient boosting</li>
+<li>xgboost</li>
+<li>lightGBM</li>
+</ul>
+</li>
+<li><p>NAN</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_booleans = df.isnull()</span><br><span class="line">df_booleans.any()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Imputation</p>
+<ul>
+<li><p>mean</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.impute import SimpleImputer</span><br><span class="line">mean_imputer = SimpleImputer(missing_values=np.NaN, strategy=&apos;mean&apos;)</span><br><span class="line">mean_imputer.fit(df)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>regression：age 和 BP 具有线性关系</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.experimental import enable_iterative_imputer</span><br><span class="line">from sklearn.impute import IterativeImputer</span><br><span class="line">reg_imputer = IterativeImputer()</span><br><span class="line">reg_imputer.fit(df)</span><br><span class="line">nparray_imputed_reg = reg_imputer.transform(df)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>SHAP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">explainer = shap.TreeExplainer(rf_imputed)</span><br><span class="line">i = 0</span><br><span class="line">shap_value = explainer.shap_values(X_test.loc[X_test_risk.index[i], :])[1]</span><br><span class="line">shap.force_plot(explainer.expected_value[1], shap_value, feature_names=X_test.columns, matplotlib=True)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+</article>
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            </section>
+            <section class="aside-section">
+                
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+            </section>
+            <section class="aside-section tag">
+                
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+
+            </section>
+        </aside>
+    </div>
+</body>
+
+</html>

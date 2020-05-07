@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="machine learning">
+    <title>
+        Sceliay&#39;s Blog
+    </title>
+    <!-- favicon -->
+     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@2.0.0/dist/main.js"></script>
+
+    <script>
+        infiniteScroll()
+
+        window.addEventListener('DOMContentLoaded', function () {
+            const [
+                mainTitle,
+                mobileMenu,
+                mobileMainTitle,
+                mobileMenuBtn,
+                ipadMenuBtn,
+                aside,
+                closeBtn,
+            ] = getEle(
+                '#main-title',
+                '.mobile-menu',
+                '.mobile-menu h3',
+                '.mobile-menu button',
+                '.ipad-menu',
+                'aside',
+                'aside .close',
+            )
+            const io = new IntersectionObserver(entries => {
+                if (entries[0].intersectionRatio <= 0) {
+                    mobileMainTitle.classList.remove('invisibile')
+                } else {
+                    mobileMainTitle.classList.add('invisibile')
+                }
+            })
+            io.observe(mainTitle)
+
+            clickToggleAside(mobileMenuBtn)
+            clickToggleAside(ipadMenuBtn)
+            clickToggleAside(closeBtn, false)
+
+            const isMenuVisible = window.getComputedStyle(mobileMenu).display !== 'none'
+            if (isMenuVisible) document.body.style.background = 'none'
+
+            function getEle(...args) {
+                return args.map(arg => document.querySelector(arg))
+            }
+
+            function clickToggleAside(btn, show = true) {
+                btn.addEventListener('click', function () {
+                    if (show) {
+                        aside.style.display = 'block'
+                    } else {
+                        aside.style.display = 'none'
+                    }
+                })
+            }
+        })
+    </script>
+</head>
+
+<body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+    <div class="container">
+        <header class="header">
+    <nav class="mobile-menu" style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <h3 class="invisibile">
+            <a href="/" class="logo">
+                Sceliay&#39;s Blog
+            </a>
+        </h3>
+        <button class="menu">menu</button>
+    </nav>
+
+    <button class="ipad-menu menu">menu</button>
+
+    <h1 class="title" id="main-title">
+        <a href="/" class="logo">
+            Sceliay&#39;s Blog
+        </a>
+    </h1>
+    <h2 class="desc">
+        Welcome to my blog!
+    </h2>
+
+    <div class="links">
+        <ul>
+            
+            <li>
+                <a href="https://github.com/sceliay">
+                    Github
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://weibo.com/sceliayry">
+                    Weibo
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</header>
+        <main class="main">
+            <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/Data-Structure/">
+            Data Structure
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        剑指offer
+    </h2>
+    <ul class="post-date">
+        <li>
+            2020-04-26
+        </li>
+        <li>
+            Sceliay
+        </li>
+    </ul>
+    <div class="post-content">
+        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ol>
+<li>数组占据一块连续的内存并且按照顺序存储，空间效率低</li>
+<li>哈希表：数组的下标设为哈希表的键值，数组中的数字为哈希表的值，“键值-值”的配对</li>
+<li>数组中重复的数字<ul>
+<li>set</li>
+<li>list</li>
+</ul>
+</li>
+<li>二维数组中的查找</li>
+</ol>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><ol>
+<li>替换空格<ul>
+<li><code>s.replace(&#39; &#39;,&#39;%20&#39;)</code></li>
+</ul>
+</li>
+</ol>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><ol>
+<li>链表是一种动态数据结构</li>
+<li><p>定义：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class ListNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val = x</span><br><span class="line">        self.next = None</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从尾到头打印链表</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">   # 返回从尾部到头部的列表值序列，例如[1,2,3]</span><br><span class="line">    def printListFromTailToHead(self, listNode):</span><br><span class="line">        # write code here</span><br><span class="line">        l = []</span><br><span class="line">        head = listNode</span><br><span class="line">        while head:</span><br><span class="line">            l.insert(0, head.val)</span><br><span class="line">            head = head.next</span><br><span class="line">        return l</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><ol>
+<li><p>二叉树</p>
+<ul>
+<li>前序遍历： 根-左-右</li>
+<li>中序遍历： 左-根-右</li>
+<li>后序遍历： 左-右-根</li>
+<li>定义：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class TreeNode:</span><br><span class="line">    def __init__(self, x):</span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = None</span><br><span class="line">        self.right = None</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>重建二叉树</p>
+<ul>
+<li>前序遍历的第一个数字尾根节点，中序遍历中，根节点前的为左子树节点，后面为右子树</li>
+<li>可以用递归重建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    # 返回构造的TreeNode根节点</span><br><span class="line">    def reConstructBinaryTree(self, pre, tin):</span><br><span class="line">        # write code here</span><br><span class="line">        if len(pre)==0:</span><br><span class="line">            return None</span><br><span class="line">        if len(pre)==1:</span><br><span class="line">            return TreeNode(pre[0])</span><br><span class="line">        else:</span><br><span class="line">            root = TreeNode(pre[0])</span><br><span class="line">            r_idx = tin.index(pre[0])</span><br><span class="line">            root.left = self.reConstructBinaryTree(pre[1:r_idx+1],tin[0:r_idx])</span><br><span class="line">            root.right = self.reConstructBinaryTree(pre[r_idx+1:],tin[r_idx+1:])</span><br><span class="line">            return root</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>二叉树的下一个节点</p>
+</li>
+</ol>
+<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><ol>
+<li>栈：后进后出，最后被压入(push)栈的元素会第一个被弹出(pop)</li>
+<li>队列：先进先出，第一个进入队列的第一个出来。</li>
+<li>用两个栈实现队列：先将元素插入stack1,再将stack1中元素倒序插入stack2，从stack2中出栈： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.stack1=[]</span><br><span class="line">        self.stack2=[]</span><br><span class="line">    def push(self, node):</span><br><span class="line">        # write code here</span><br><span class="line">        self.stack1.append(node)</span><br><span class="line">    def pop(self):</span><br><span class="line">        # return xx</span><br><span class="line">        if self.stack2==[]:</span><br><span class="line">            while self.stack1:</span><br><span class="line">                self.stack2.append(self.stack1.pop())</span><br><span class="line">        return self.stack2.pop()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="递归和循环"><a href="#递归和循环" class="headerlink" title="递归和循环"></a>递归和循环</h1><ol>
+<li>递归：在一个函数内部调用函数自身</li>
+<li>循环：重复运算</li>
+<li></li>
+</ol>
+
+    </div>
+</article>
+        </main>
+        <aside class="aside">
+            <div class="close"></div>
+            <section class="aside-section">
+                
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            </section>
+            <section class="aside-section">
+                
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
+
+
+            </section>
+            <section class="aside-section tag">
+                
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+
+            </section>
+        </aside>
+    </div>
+</body>
+
+</html>
