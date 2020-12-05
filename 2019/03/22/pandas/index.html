@@ -199,7 +199,7 @@
 <ol>
 <li><p><a href="https://blog.csdn.net/xiaodongxiexie/article/details/53108959" target="_blank" rel="noopener">对行和列的操作</a></p>
 </li>
-<li><p><a href="https://amberwest.github.io/2019/03/05/%E5%88%A0%E9%99%A4DataFrame%E4%B8%AD%E6%9F%90%E5%88%97%E5%80%BC%E4%B8%BANaN%E7%9A%84%E8%AE%B0%E5%BD%95-%E8%A1%8C/" target="_blank" rel="noopener">去掉含nan的行/列</a></p>
+<li><p><a href="https://amberwest.github.io/2019/03/05/%E5%88%A0%E9%99%A4DataFrame%E4%B8%AD%E6%9F%90%E5%88%97%E5%80%BC%E4%B8%BANaN%E7%9A%84%E8%AE%B0%E5%BD%95-%E8%A1%8C/" target="_blank" rel="noopener">去掉含nan的行/列</a><br><code>dropna()</code></p>
 </li>
 <li><p>删去重复列<br><code>DataFrame.drop_duplicates(subset=None, keep=&#39;first&#39;, inplace=False)</code></p>
 </li>
@@ -208,6 +208,9 @@
 <li><code>subset</code>: 指定特定的列，默认全部</li>
 <li><code>keep: {‘first’, ‘last’, False}, default ‘first’</code>: 删除重复项，并保留，默认第一次出现的</li>
 </ul>
+<ol>
+<li>删除某值<br><code>data2 = data[~data.isin([&#39;\\N&#39;])]</code></li>
+</ol>
 
     </div>
 </article>
@@ -233,7 +236,7 @@
                 
     <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anaconda/">Anaconda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EHR/">EHR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Embedding/">Embedding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jupyter/">Jupyter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Keras/">Keras</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/">Pytorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theano/">Theano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/audio-quality/">audio quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image-quality/">image quality</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video-quality/">video quality</a></li></ul>
 
             </section>
         </aside>
