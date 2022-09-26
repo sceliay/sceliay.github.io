@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Sceliay's Blog | Welcome to my blog!</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Sceliay's Blog</h1><a id="logo" href="/.">Sceliay's Blog</a><p class="description">Welcome to my blog!</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tags/"><i class="fa fa-tags"> 标签</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2020/03/01/GNN/">GNN</a></h1><div class="post-meta">2020-03-01</div><div class="post-content">参考： DGL, Transformers are Graph Neural Networks
+Deep Learning, NLP, and Representations
+The hidden layer can be used as a lookup table.
+Perceptron: 感知机
+Word Embedding: a paramateri...</div><p class="readmore"><a href="/2020/03/01/GNN/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2020/01/16/sklearn/">sklearn</a></h1><div class="post-meta">2020-01-16</div><div class="post-content">
+评估函数
+
+
+Classification metrics
+123456from sklearn import metricsmetrics.roc_auc_score(y_true,y_pre)# F1 = 2 * (precision * recall) / (precision + recall)metrics.f1_score(y_true,y_p...</div><p class="readmore"><a href="/2020/01/16/sklearn/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2020/01/06/anaconda/">服务器环境命令</a></h1><div class="post-meta">2020-01-06</div><div class="post-content">记录一些服务器上常用命令。
+Anaconda
+添加环境export PATH=&quot;/home/ry/anaconda3/bin:$PATH&quot;
+Python 3 与 Python 2 环境转换
+
+
+创建环境conda create -n python27 python=2.7 anaconda
+进入环境source activate env_...</div><p class="readmore"><a href="/2020/01/06/anaconda/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/12/17/pytorch3/">Pytorch 序列</a></h1><div class="post-meta">2019-12-17</div><div class="post-content">
+
+
+参考：code of learn deep learning with pytroch
+循环神经网络RNNh_t = tanh(w_{ih}*x_t+b_{ih}+w_{hh}*h_{t-1}+b_{hh})
+torch.nn.RNNCell() 只接受序列中单步的输入，且必须传入隐藏状态
+
+input_size: 输入的特征维度
+hidden_siz...</div><p class="readmore"><a href="/2019/12/17/pytorch3/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/12/17/pytorch2/">Pytorch 模型</a></h1><div class="post-meta">2019-12-17</div><div class="post-content">参考：code of learn deep learning with pytroch
+SequentialSequential 构建序列化模块。12345seq_net = nn.Sequential(	nn.Linear(2,4),	nn.Tanh(),	nn.Linear(4,1)	)
+
+序列模块可以通过索引访问每一层
+12seq_net[0] # 第...</div><p class="readmore"><a href="/2019/12/17/pytorch2/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/12/09/pytorch/">Pytorch 基本概念</a></h1><div class="post-meta">2019-12-09</div><div class="post-content">参考：code of learn deep learning with pytroch，PyTorch中文文档
+安装conda: conda install pytorch torchvision -c pytorchpip: pip install http://download.pytorch.org/whl/cu80/torch-0.3.0.post4...</div><p class="readmore"><a href="/2019/12/09/pytorch/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/12/04/attention/">Attention</a></h1><div class="post-meta">2019-12-04</div><div class="post-content">Attention参考：Attn: Illustrated Attention
+随着深度学习的发展，Neural Machine Translation(NMT) 也逐渐取代传统的 Statistical Machine Translation(SMT)。 其中，最广为人知的框架为 Sutskever et. al 提出的 sequence-to-seque...</div><p class="readmore"><a href="/2019/12/04/attention/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/11/12/jupyter/">Jupyter使用笔记</a></h1><div class="post-meta">2019-11-12</div><div class="post-content">使用jupter可以比较方便的写程序，并且在远程服务器上运行。《Jupyter Notebook介绍、安装及使用教程》一文里比较全面的介绍了Jupter的使用方法。下面记录一下我需要的一些内容。
+
+远程连接服务器
+
+
+下载jupyter notebook。 比较方便的就是用anaconda.
+
+生成密钥：
+1234$ ipythonfrom notebook...</div><p class="readmore"><a href="/2019/11/12/jupyter/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/10/13/quality/">Quality assessment</a></h1><div class="post-meta">2019-10-13</div><div class="post-content">
+
+Image Quality Assessment(IQA)
+有参考图图像的质量评估
+
+
+MSE: 计算图像的像素差的平方，然后在全图上求平均：
+MSE=\frac{1}{mn}\sum_{i=0}^{m-1}\sum_{j=0}{n-1}[I(i,j) - K(i,j)]^2但是，基于 MSE 的损失不足以表达人的视觉系统对图片的直观感受。
+
+PSNR:...</div><p class="readmore"><a href="/2019/10/13/quality/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/03/25/keras/">Keras 学习笔记</a></h1><div class="post-meta">2019-03-25</div><div class="post-content">参考资料：Keras中文文档,Keras英文文档, Keras教程, W3CSCHOOL,Tensorflow中文社区,
+
+Sequential顺序模型
+
+
+定义：
+12from keras.models import Sequentialmodel = Sequential()
+
+使用add堆叠模型：
+123from keras.layers import...</div><p class="readmore"><a href="/2019/03/25/keras/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://github.com/sceliay"></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/img/head.jpg"></a><p>当你凝视深渊的时候，深渊也在凝视着你。</p><a class="info-icon" href="https://twitter.com/yren_zj" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="yren@zhejianglab.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/sceliay" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Jupyter/" style="font-size: 15px;">Jupyter</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Embedding/" style="font-size: 15px;">Embedding</a> <a href="/tags/Theano/" style="font-size: 15px;">Theano</a> <a href="/tags/Anaconda/" style="font-size: 15px;">Anaconda</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Keras/" style="font-size: 15px;">Keras</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/EHR/" style="font-size: 15px;">EHR</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Pytorch/" style="font-size: 15px;">Pytorch</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/quality/" style="font-size: 15px;">quality</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/09/26/med-bert/">Med BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/18/mldl/">MLDL</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/13/keras-1/">Keras 学习笔记(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/BERT/">BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/28/ai4md2/">AI for Medicine(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/26/offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/23/matplotlib/">Matplotlib</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/ai4md/">AI for Medicine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ml/">Machine Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/tensorflow-2-0/">tensorflow-2.x</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Sceliay's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
