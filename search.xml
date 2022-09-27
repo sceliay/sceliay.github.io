@@ -14,9 +14,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> EHR </tag>
             
@@ -81,9 +81,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Keras </tag>
             
@@ -112,9 +112,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Embedding </tag>
             
@@ -268,9 +268,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Tensorflow </tag>
             
@@ -374,9 +374,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Pytorch </tag>
             
@@ -403,9 +403,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Pytorch </tag>
             
@@ -432,9 +432,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Pytorch </tag>
             
@@ -520,35 +520,6 @@
     
     
     <entry>
-      <title>Tensorflow 小记</title>
-      <link href="/2019/03/25/tensorflow3/"/>
-      <url>/2019/03/25/tensorflow3/</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>输出tensor值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">x = tf.constant(1)</span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    print sess.run(x)</span><br></pre></td></tr></table></figure></li><li><p>(矩阵加和)[<a href="https://blog.csdn.net/qq_16137569/article/details/72568793" target="_blank" rel="noopener">https://blog.csdn.net/qq_16137569/article/details/72568793</a>]<br><code>tf.reduce_sum(input_tenosr, reduction_indices, keep_dims, name)</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = [[1,1,1], [1,1,1]]</span><br><span class="line"></span><br><span class="line">tf.reduce_sum(x) # 6</span><br><span class="line">tf.reduce_sum(x,0) # [2,2,2]</span><br><span class="line">tf.reduce_sum(x,1) # [3,3]</span><br><span class="line">tf.reduce_sum(x,1, keep_dims=True) # [[3],[3]]</span><br><span class="line">tf.reduce_sum(x,[0,1]) # 6</span><br></pre></td></tr></table></figure></li><li><p>(获取中间某一层的输出)[<a href="https://www.cnblogs.com/as3asddd/p/10129241.html" target="_blank" rel="noopener">https://www.cnblogs.com/as3asddd/p/10129241.html</a>]</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model.fit(data, labels, epochs=10, batch_size=32)</span><br><span class="line"></span><br><span class="line"># 已有的model在load权重过后</span><br><span class="line"># 取某一层的输出为输出新建为model，采用函数模型</span><br><span class="line">dense1_layer_model = Model(inputs=model.input,</span><br><span class="line">outputs=model.get_layer(&apos;Dense_1&apos;).output)</span><br><span class="line"></span><br><span class="line"># layer_model = Model(inputs=model.input, outputs=model.layers[6].output)</span><br><span class="line"></span><br><span class="line">#以这个model的预测值作为输出</span><br><span class="line">dense1_output = dense1_layer_model.predict(data)</span><br></pre></td></tr></table></figure></li><li><p>(矩阵上下三角)[<a href="https://blog.csdn.net/ACM_hades/article/details/88790013" target="_blank" rel="noopener">https://blog.csdn.net/ACM_hades/article/details/88790013</a>]</p></li></ol><ul><li><code>tf.matrix_band_part</code></li><li>2.0版本： <code>tf.linalg.band_par</code></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.linalg.band_part(</span><br><span class="line">    input,</span><br><span class="line">    num_lower,</span><br><span class="line">    num_upper,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li></ul><p>作用：主要功能是以对角线为中心，取它的副对角线部分，其他部分用0填充。<br>input:输入的张量.<br>num_lower:下三角矩阵保留的副对角线数量，从主对角线开始计算，相当于下三角的带宽。取值为负数时，则全部保留。<br>num_upper:上三角矩阵保留的副对角线数量，从主对角线开始计算，相当于上三角的带宽。取值为负数时，则全部保留。</p><ol><li>张量扩充<br><code>tf.tile(raw, multiples=[2, 1])</code></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Machine Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Python </tag>
-            
-            <tag> Machine Learning </tag>
-            
-            <tag> Tensorflow </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Keras 学习笔记</title>
       <link href="/2019/03/25/keras/"/>
       <url>/2019/03/25/keras/</url>
@@ -565,11 +536,40 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Python </tag>
+            
+            <tag> Keras </tag>
+            
+            <tag> Tensorflow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Tensorflow 小记</title>
+      <link href="/2019/03/25/tensorflow3/"/>
+      <url>/2019/03/25/tensorflow3/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>输出tensor值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">x = tf.constant(1)</span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    print sess.run(x)</span><br></pre></td></tr></table></figure></li><li><p>(矩阵加和)[<a href="https://blog.csdn.net/qq_16137569/article/details/72568793" target="_blank" rel="noopener">https://blog.csdn.net/qq_16137569/article/details/72568793</a>]<br><code>tf.reduce_sum(input_tenosr, reduction_indices, keep_dims, name)</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = [[1,1,1], [1,1,1]]</span><br><span class="line"></span><br><span class="line">tf.reduce_sum(x) # 6</span><br><span class="line">tf.reduce_sum(x,0) # [2,2,2]</span><br><span class="line">tf.reduce_sum(x,1) # [3,3]</span><br><span class="line">tf.reduce_sum(x,1, keep_dims=True) # [[3],[3]]</span><br><span class="line">tf.reduce_sum(x,[0,1]) # 6</span><br></pre></td></tr></table></figure></li><li><p>(获取中间某一层的输出)[<a href="https://www.cnblogs.com/as3asddd/p/10129241.html" target="_blank" rel="noopener">https://www.cnblogs.com/as3asddd/p/10129241.html</a>]</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model.fit(data, labels, epochs=10, batch_size=32)</span><br><span class="line"></span><br><span class="line"># 已有的model在load权重过后</span><br><span class="line"># 取某一层的输出为输出新建为model，采用函数模型</span><br><span class="line">dense1_layer_model = Model(inputs=model.input,</span><br><span class="line">outputs=model.get_layer(&apos;Dense_1&apos;).output)</span><br><span class="line"></span><br><span class="line"># layer_model = Model(inputs=model.input, outputs=model.layers[6].output)</span><br><span class="line"></span><br><span class="line">#以这个model的预测值作为输出</span><br><span class="line">dense1_output = dense1_layer_model.predict(data)</span><br></pre></td></tr></table></figure></li><li><p>(矩阵上下三角)[<a href="https://blog.csdn.net/ACM_hades/article/details/88790013" target="_blank" rel="noopener">https://blog.csdn.net/ACM_hades/article/details/88790013</a>]</p></li></ol><ul><li><code>tf.matrix_band_part</code></li><li>2.0版本： <code>tf.linalg.band_par</code></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tf.linalg.band_part(</span><br><span class="line">    input,</span><br><span class="line">    num_lower,</span><br><span class="line">    num_upper,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li></ul><p>作用：主要功能是以对角线为中心，取它的副对角线部分，其他部分用0填充。<br>input:输入的张量.<br>num_lower:下三角矩阵保留的副对角线数量，从主对角线开始计算，相当于下三角的带宽。取值为负数时，则全部保留。<br>num_upper:上三角矩阵保留的副对角线数量，从主对角线开始计算，相当于上三角的带宽。取值为负数时，则全部保留。</p><ol><li>张量扩充<br><code>tf.tile(raw, multiples=[2, 1])</code></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
             
             <tag> Machine Learning </tag>
             
-            <tag> Keras </tag>
+            <tag> Python </tag>
             
             <tag> Tensorflow </tag>
             
@@ -623,9 +623,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Python </tag>
             
             <tag> Tensorflow </tag>
             
