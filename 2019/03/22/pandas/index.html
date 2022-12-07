@@ -3,33 +3,21 @@
 <li><p>读取与存储<br><code>read_csv</code>, <code>to_csv</code>, <code>read_pickle</code>,<code>to_pickle</code><br>当某列值为list的时候，采用<code>to_pickle</code>存储，如果用<code>to_csv</code>存储，list会被存为str。</p>
 </li>
 <li><p>缺损值填充</p>
-</li>
-</ol>
 <ul>
 <li><code>data = data.fillna(&#39;-1&#39;, )</code></li>
 <li><code>data = data.fillna(data.mean(), )</code></li>
-<li>填充[]: 不过，尽量不要用DataFrame存储list<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nan_index = data[data.isnull()].index</span><br><span class="line">data.loc[nan_index,] = [[]]</span><br></pre></td></tr></table></figure>
+<li>填充<code>[]</code>: 不过，尽量不要用DataFrame存储list<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nan_index = data[data.isnull()].index</span><br><span class="line">data.loc[nan_index,] = [[]]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
+</li>
 <li><p>计算缺损值个数：<br><code>Nan_num = data.shape[1]-data.count(axis=1)</code></p>
 </li>
-<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code><br>drop函数默认删除行，列需要加<code>axis = 1</code></p>
+<li><p>去掉缺损值过多的行：<br><code>data.drop(Nan_num[Nan_num&gt;256.index.tolist(),inplace=True)</code><br>drop函数默认删除行，列需要加<code>axis = 1</code><br><code>df.drop(&#39;column_name&#39;, axis=1, inplace=True)</code><br><code>items_one = items.drop_duplicates(&#39;ITEMID&#39;,&#39;first&#39;,inplace=False)</code></p>
 </li>
-</ol>
-<ul>
-<li><code>df.drop(&#39;column_name&#39;, axis=1, inplace=True)</code></li>
-<li><code>items_one = items.drop_duplicates(&#39;ITEMID&#39;,&#39;first&#39;,inplace=False)</code></li>
-</ul>
-<ol>
 <li><p>df.info()查看数据type</p>
 </li>
-<li><p><a href="https://juejin.im/post/5acc36e66fb9a028d043c2a5" target="_blank" rel="noopener">数据转换</a></p>
-</li>
-</ol>
+<li><p><a href="https://juejin.im/post/5acc36e66fb9a028d043c2a5" target="_blank" rel="noopener">数据转换</a><br><code>astype()</code>强制转换，仅返回数据的副本而不原地修改。</p>
 <ul>
-<li><p>astype()强制转换，仅返回数据的副本而不原地修改。</p>
-</li>
 <li><p>自定义转换：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def convert_currency(val):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Convert the string number value to a float</span><br><span class="line">     - Remove $</span><br><span class="line">     - Remove commas</span><br><span class="line">     - Convert to float type</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    new_val = val.replace(&apos;,&apos;,&apos;&apos;).replace(&apos;$&apos;, &apos;&apos;)</span><br><span class="line">    return float(new_val)</span><br><span class="line"></span><br><span class="line">df[&apos;2016&apos;].apply(convert_currency)</span><br></pre></td></tr></table></figure>
 </li>
@@ -38,46 +26,41 @@
 <li><p>使用to_numeric进行转换<br><code>pd.to_numeric(df[&#39;Jan Units&#39;], errors=&#39;coerce&#39;).fillna(0)</code></p>
 </li>
 </ul>
-<ol>
-<li><a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/3-2-pd-indexing/" target="_blank" rel="noopener">选择数据</a></li>
-</ol>
+</li>
+<li><p><a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/3-2-pd-indexing/" target="_blank" rel="noopener">选择数据</a></p>
 <ul>
 <li><code>loc</code>根据标签</li>
 <li><code>iloc</code>根据序列</li>
 <li><code>ix</code>混合</li>
 </ul>
-<ol>
+</li>
 <li><p><a href="https://blog.csdn.net/stevenkwong/article/details/52528616" target="_blank" rel="noopener">数据合并</a></p>
 </li>
 <li><p><a href="https://blog.csdn.net/waple_0820/article/details/80514073" target="_blank" rel="noopener">统计个数</a></p>
-</li>
-</ol>
 <ul>
 <li><code>df.groupby([&#39;id&#39;],as_index=False)[&#39;id&#39;].agg({&#39;cnt&#39;:&#39;count&#39;})</code></li>
 <li><code>df[&#39;id&#39;].value_counts()</code></li>
 </ul>
-<ol>
-<li>datetime</li>
-</ol>
+</li>
+<li><p>datetime</p>
 <ul>
 <li><code>pd.to_datetime(df)</code>：将str转换为datetime</li>
 <li><code>df.dt.year</code>: 获得datetime数据中的year</li>
 <li><code>df.map(lambda x:x.strftime(&#39;%Y&#39;))</code></li>
 </ul>
-<ol>
+</li>
 <li><p><a href="https://blog.csdn.net/xiaodongxiexie/article/details/53108959" target="_blank" rel="noopener">对行和列的操作</a></p>
 </li>
 <li><p><a href="https://amberwest.github.io/2019/03/05/%E5%88%A0%E9%99%A4DataFrame%E4%B8%AD%E6%9F%90%E5%88%97%E5%80%BC%E4%B8%BANaN%E7%9A%84%E8%AE%B0%E5%BD%95-%E8%A1%8C/" target="_blank" rel="noopener">去掉含nan的行/列</a><br><code>dropna()</code></p>
 </li>
 <li><p>删去重复列<br><code>DataFrame.drop_duplicates(subset=None, keep=&#39;first&#39;, inplace=False)</code></p>
-</li>
-</ol>
 <ul>
 <li><code>subset</code>: 指定特定的列，默认全部</li>
 <li><code>keep: {‘first’, ‘last’, False}, default ‘first’</code>: 删除重复项，并保留，默认第一次出现的</li>
 </ul>
-<ol>
-<li>删除某值<br><code>data2 = data[~data.isin([&#39;\\N&#39;])]</code></li>
+</li>
+<li><p>删除某值<br><code>data2 = data[~data.isin([&#39;\\N&#39;])]</code></p>
+</li>
 </ol>
 </div><div class="tags"><a href="/tags/Python"><i class="fa fa-tag">Python</i></a><a href="/tags/Pandas"><i class="fa fa-tag">Pandas</i></a></div><div class="post-nav"><a class="pre" href="/2019/03/25/tensorflow3/">Tensorflow 小记</a><a class="next" href="/2019/03/09/tensorflow/">Tensorflow 课堂笔记</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
 var verify = 'false' == 'true' ? true : false;
@@ -97,4 +80,4 @@ window.valine = new Valine({
   guest_info:guest_info,
   pageSize:'10'
 })
-</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://github.com/sceliay"></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/img/head.jpg"></a><p>当你凝视深渊的时候，深渊也在凝视着你。</p><a class="info-icon" href="https://github.com/sceliay" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yren@zhejianglab.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://weibo.com/u/2265958580" title="weibo" target="_blank" style="margin-inline:5px"> <i class="fa fa-weibo" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML4Med/">ML4Med</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Matplotlib/" style="font-size: 15px;">Matplotlib</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Embedding/" style="font-size: 15px;">Embedding</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/Anaconda/" style="font-size: 15px;">Anaconda</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/Jupyter/" style="font-size: 15px;">Jupyter</a> <a href="/tags/Theano/" style="font-size: 15px;">Theano</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/EHR/" style="font-size: 15px;">EHR</a> <a href="/tags/Pytorch/" style="font-size: 15px;">Pytorch</a> <a href="/tags/quality/" style="font-size: 15px;">quality</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/sklearn/" style="font-size: 15px;">sklearn</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Keras/" style="font-size: 15px;">Keras</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/10/11/tensorflow-1/">tensorflow模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/26/med-bert/">Med BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/18/mldl/">Lable Distribution for Multimodal Machine Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/12/cat/">cat</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/13/keras/">Keras 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/20/BERT/">BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/26/offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/23/matplotlib/">Matplotlib绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/ai4md/">AI for Medicine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ml/">Machine Learning 面试题</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Sceliay's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://github.com/sceliay"></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/img/head.jpg"></a><p>当你凝视深渊的时候，深渊也在凝视着你。</p><a class="info-icon" href="https://github.com/sceliay" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yren@zhejianglab.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://weibo.com/u/2265958580" title="weibo" target="_blank" style="margin-inline:5px"> <i class="fa fa-weibo" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure/">Data Structure</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML4Med/">ML4Med</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Matplotlib/" style="font-size: 15px;">Matplotlib</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Embedding/" style="font-size: 15px;">Embedding</a> <a href="/tags/Theano/" style="font-size: 15px;">Theano</a> <a href="/tags/Anaconda/" style="font-size: 15px;">Anaconda</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/Jupyter/" style="font-size: 15px;">Jupyter</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/EHR/" style="font-size: 15px;">EHR</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Pytorch/" style="font-size: 15px;">Pytorch</a> <a href="/tags/quality/" style="font-size: 15px;">quality</a> <a href="/tags/sklearn/" style="font-size: 15px;">sklearn</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Keras/" style="font-size: 15px;">Keras</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/12/02/BERT/">BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/11/tensorflow-1/">Tensorflow模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/26/med-bert/">Med BERT</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/04/18/mldl/">Lable Distribution for Multimodal Machine Learning</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/12/cat/">大黄饲养笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/13/keras/">Keras 学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/26/offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/23/matplotlib/">Matplotlib绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/ai4md/">AI for Medicine</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ml/">Machine Learning 面试题</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Sceliay's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
