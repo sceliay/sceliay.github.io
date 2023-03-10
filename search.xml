@@ -4,6 +4,175 @@
   
     
     <entry>
+      <title>Advances in Mining Heterogeneous Healthcare Data</title>
+      <link href="/2023/03/09/heterogeneousHealthcare/"/>
+      <url>/2023/03/09/heterogeneousHealthcare/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://dl.acm.org/doi/10.1145/3447548.3470789?sid=SCITRUS" target="_blank" rel="noopener">KDD’21 tutorial</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Association mining</title>
+      <link href="/2023/02/28/association/"/>
+      <url>/2023/02/28/association/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a><a href="https://www.51cto.com/article/698009.html" target="_blank" rel="noopener">数据挖掘</a></h2><p>数据挖掘(data mining)又译为资料探勘、数据采矿，是指从大量的、不完全的、有噪声的、模糊的、随机的数据中提取隐含在其中的、人们事先不知道的但又潜在有用的信息和知识的过程。</p><p>数据挖掘的具体</p><p>（1） 语义嵌入表达<br>本项目拟从两个方面考虑语义嵌入表达，包括疾病语义及患者属性语义。疾病语义考虑已有的疾病相关知识，以及现有EHR数据中患者病史，挖掘其中多种疾病的相关性，获得其疾病语义特征表达。患者属性语义考虑多种患者信息，包括人口统计学信息，如年龄、性别、民族等；医疗基本信息，如过敏史、家族史、既往史；诊疗信息，如门诊及出入院记录、诊断记录、用药记录、手术记录等；实验室检查信息，如血压记录、体重记录等，采用语义嵌入方式挖掘其中的患者属性特征。<br>（2） 基于语义信息的标记增强<br>    考虑疾病之间的关联关系、患者属性特征之间的相似性，构建疾病与属性特征之间的关系网络。根据网络拓扑，实现标记增强。<br>（3） 基于类属特征的疾病预测</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>迁移强化学习</title>
+      <link href="/2023/02/17/transRL/"/>
+      <url>/2023/02/17/transRL/</url>
+      
+        <content type="html"><![CDATA[<p>参考文献：<a href="https://www.zhihu.com/column/c_1484160649094131712" target="_blank" rel="noopener">迁移强化学习</a>, <a href="https://cloud.tencent.com/developer/article/1541899" target="_blank" rel="noopener">迁移学习在强化学习中的应用及进展</a></p><h2 id="相同状态动作空间下的迁移-the-same-state-observation-action-transfer"><a href="#相同状态动作空间下的迁移-the-same-state-observation-action-transfer" class="headerlink" title="相同状态动作空间下的迁移(the same state(observation)-action transfer)"></a>相同状态动作空间下的迁移(the same state(observation)-action transfer)</h2><ul><li>迁移内容：<ul><li>具体知识(specific knowledge): <ul><li>策略(policy)：<ul><li>直接更新(reuse for update):直接使用知识对策略或者值函数进行更新，如策略蒸馏</li><li>辅助探索(reuse for exploration)：使用源域上的知识帮助目标域上的智能体去探索，如策略复用</li></ul></li><li>价值函数(value function)</li><li>示范(demonstrations)</li></ul></li><li>抽象知识(abstract knowledge)</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MIMIC数据集</title>
+      <link href="/2023/02/16/mimic/"/>
+      <url>/2023/02/16/mimic/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://mimic.mit.edu/docs/" target="_blank" rel="noopener">MIMIC文档</a></p><h2 id="MIMIC-II"><a href="#MIMIC-II" class="headerlink" title="MIMIC-II"></a>MIMIC-II</h2><p><a href="https://physionet.org/content/mimic2-iaccd/1.0/" target="_blank" rel="noopener">留置动脉导管的案例</a></p><p><a href="https://physionet.org/physiobank/database/mimic2wdb/matched/" target="_blank" rel="noopener">MIMIC-II matched waveform database</a></p><p>BIDMC PPG and respiration</p><h2 id="MIMIC-III"><a href="#MIMIC-III" class="headerlink" title="MIMIC-III"></a>MIMIC-III</h2><p>基于MIMIC-III的合成急性低血压和败血症数据集<br>包含用GAN生成的数据。<br>急性败血症：3910患者，187,680数据<br>脓毒症：2164患者，43280条数据</p><p>阿片类药物使用障碍及相关内容<br>Opioid use disorder (OUD)</p><p>患者病历的表型注释</p><p>重症监护室血糖管理</p><p>EntityBERT<br>基于bert的模型，在MIMIC-III上预训练<br>临床领域的实体中心掩蔽策略</p><p>国立卫生研究院中风量表(NIHSS)注释<br>MIMIC-III<br>15项神经检查中风量表。它量化了神经缺损的物理表现，为临床决策和早期急诊分诊提供了重要支持。</p><p>CareVue subset<br>包含不属于MIMIC-IV的患者的MIMIC-III子集<br>简化MIMIC-III与MIMIC-IV的组合</p><h2 id="MIMIC-IV"><a href="#MIMIC-IV" class="headerlink" title="MIMIC-IV"></a>MIMIC-IV</h2><p>MIMIC-IV demo</p><p>MIMIC-IV on FHIR<br>快速医疗保健互操作性资源</p><p>MIMIC-IV in OMOP</p><p>MIMIC-IV-ED<br>2011年-2019年，约425,000条数据。<br>包含：生命体征，分诊信息，药物调节，药物管理和出院诊断<br>数据：edstays（在ICU的停留时间）, diagnosis, medrecon（用药）, pyxis（用药的分配信息）, triage（检伤分类）, vitalsign（生命体征表）<br>可以与MIMIC-IV和MIMIC-CXR连接</p><p>MIMICEL<br>急诊科的MIMIC-IV事件日志<br>从MIMIC-IV-ED中采集</p><p>MIMIC-IV-NOTE</p><p>MIMIC-IV-ECG<br>800,000心电图诊断，160,000患者<br>MIMIC-IV-ECG Demo</p><p>MIMIC-CXR<br>数据：EHR, 图像（胸部X射线图），报告（文字）<br>377,110副图像，227,835影像学研究<br>急性和慢性心肺疾病，验证起搏器、中心静脉导管等设备的正确位置</p><p>胸部x光片的眼睛注视数据<br>包括1083例病例，涵盖同样3种突出的临床疾病(即正常、肺炎和充血性心力衰竭(CHF))。从MIMIC-CXR数据库中提取这些病例对应的CXR图像。</p><p>带结构化标签的胸部X线片<br>该数据集包含377,110张JPG格式图像和结构化标签，这些标签来自与这些图像相关的227,827份自由文本放射学报告。</p><p>心律失常发作时ECG心电图和PPG信号模拟模型</p><p>REFLACX：胸部x光片异常定位的报告和眼球追踪数据</p><p>胸部x线数据集与肺分割</p><p>胸部x线分割图像</p><p>基于MIMIC-CXR的肺水肿严重程度分级</p><p>MIMIC-IV Waveform<br>数据：心电图、光容积、呼吸、有创和无创血压<br>MIMIC-IV Waveform subset</p><p>HAIM多模态数据<br>MIMIC-IV临床数据以及x-rays<br>MIMIC-IV, MIMIC-CXR-JPG</p><h2 id="其他数据集"><a href="#其他数据集" class="headerlink" title="其他数据集"></a>其他数据集</h2><p>儿童重症监护数据<br>该数据库是去标识的，包括生命体征测量、药物、实验室测量、液体平衡记录、诊断代码、人口统计信息等。</p><p>MS-CXR<br>1162 图像-句子<br>收集了八种不同的心肺放射学结果</p><p>RadNLI<br>放射学领域的自然语言推断数据集</p><p>CLIP<br>从医院出院记录中提取医生行动项的数据集</p><h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>Physionet challenges<br>github<br>2023: 预测心脏骤停后昏迷的神经恢复<br>2022: 从心音图记录检测心脏杂音<br>2021: 心电图学中的不同维度<br>2020: 12导联心电图的分类<br>2019: 临床资料对脓毒症的早期预测<br>2018: 打盹<br>2017：短单导联心电图对房颤的分类<br>2016: 正常/异常心音录音分类<br>2015: 减少ICU中的虚假心律失常警报<br>2014: 多模态数据中的稳健心跳检测<br>2013: 无创胎儿心电图29篇论文和17个软件<br>2012: 预测ICU患者的死亡率17篇论文和58个软件<br>2011: 提高使用手机采集心电图的质量17篇论文和7个软件<br>2010: 注意间隙13篇论文和5个软件<br>2009: 预测急性低血压发作11篇论文和4个软件<br>2008: t波交替的检测和量化19篇论文和5 + 1软件<br>2007: 心肌梗死心电图成像6篇论文<br>2006: QT间期测量20篇论文和6个软件<br>2005: 回顾前五项挑战5篇论文<br>2004: 心房颤动自发终止12篇论文和1个软件<br>2003: 区分缺血性和非缺血性ST变3篇论文和1个软件<br>2002: RR间隔时间序列建模12篇论文和10个软件<br>2001: 预测阵发性心房颤动9篇论文<br>2000: 从心电图检测睡眠呼吸暂停13篇论文和1个软件</p><p>Image/LifeCLEF</p><p>临床护理的自然语言处理和信息检索<br>ShAReCLEF eHealth 2013</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Medicine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>医疗保障急救技术</title>
+      <link href="/2023/02/03/emergency/"/>
+      <url>/2023/02/03/emergency/</url>
+      
+        <content type="html"><![CDATA[<p>参考：<a href="https://book.sciencereading.cn/shop/book/Booksimple/show.do?id=BC4ED798F85D16904E053010B0A0AAD86000" target="_blank" rel="noopener">大型活动医疗保障急救技术指导手册</a></p><h2 id="中国急救（China-Emergency-Medical-Services）"><a href="#中国急救（China-Emergency-Medical-Services）" class="headerlink" title="中国急救（China Emergency Medical Services）"></a>中国急救（China Emergency Medical Services）</h2><p>降低突发疾病和创伤等意外伤害的早期死亡率，提高救治成功率，降低后期伤残率的关键在于早期救治的规范性、及时性。</p><ol><li><p>医疗卫生保障工作的目标与内容</p><ul><li>工作目标：<ul><li>保障大型活动顺利进行</li><li>维护参与者的身体健康，避免或减少活动期间的人员伤亡</li><li>帮助大型活动组织者解决与生命健康相关的运行风险和危机</li></ul></li><li>工作内容：<ul><li>现场医疗急救</li><li>慢性疾病的日常处理</li><li>突发事件应急响应</li><li>传染病防控</li><li>食品卫生管理</li><li>兴奋剂检测</li></ul></li><li>工作原则<ul><li>建立统一高效的指挥体系和工作机制</li><li>执行国际化医疗卫生服务标准</li><li>坚持项目保障和城市运行两手抓</li></ul></li></ul></li><li><p>基本要求</p><ul><li>服务时间、地点及项目内容：确定工作时可能会遇到的天气状况、地理特点和服务项目特征。</li><li>项目内容：根据项目特点，制定针对性方案。</li><li>服务对象：确认参与人员的数量、年龄层次、身份职业、所处环境、聚散流向、民族习惯、主观意愿、特殊需求等。</li><li>工作内容：<ul><li>场馆内：现场危重病抢救、紧急监护转运、慢性疾病管理与日常诊疗、大型公共卫生事件应急响应、兴奋剂检测等。</li><li>城市服务：在定点医院提供门诊、急诊、住院服务、传染病防控、灾难应急响应等。</li></ul></li><li>工作目标：<ul><li>08年奥运会：“三个满意”，“三化”，“三为”，“三无”</li><li>东奥会：快速救援、精准保障、专业操作、平稳安全、沟通顺畅</li></ul></li></ul></li><li><p>医疗卫生保障功能单位设置</p><ul><li>基本设置：<ul><li>场边医疗急救工作点(field of play, FOP)：比赛现场医疗工作点、观众医疗工作点、重点贵宾医疗工作点。</li><li>场馆医疗站：专业医疗抢救为主、日常医疗处置为辅。根据服务人群类别和服务场地进行设置，如运动员医疗站与观众医疗站。</li><li>急救车系统：每个医疗站1~2车。急救车均按照MICU（move intensive care unit，移动重症监护病房）标准配置。</li><li>综合诊所：为参与人员提供集中、全面医疗服务的综合性医疗机构。提供优质的服务，减轻对城市医疗服务资源的占用和影响。</li><li>城市医疗卫生服务：<ul><li>定点医院服务：制定保障方案和应急预案；专人负责，绿色通道；及时报告医疗救治信息。</li><li>公共卫生及血液保障<ul><li>疾病预防控制工作：“综合协调、专业负责、属地管理”，提升公共卫生安全保障的功能与水平，降低大型活动公共卫生事件发生概率。建立传染病检测网络，针对就诊人员开展发热、腹泻、黄疸、皮疹、结膜红肿、呕吐等症状监测。</li><li>血液保障：血液采集与储备，血液预警分级，紧急送血运输，应急相容性输血，运行保障演练。</li></ul></li></ul></li></ul></li></ul></li><li><p>现场急救</p><ul><li>现场救援流程：<ul><li>预警与报警，应急响应，现场处置，现场撤离，伤员后送，定点医院接诊。</li></ul></li><li>就医控制：<ul><li>三级处置：现场处置，医疗站处置，定点医院处置</li><li>二次分流：场馆医疗卫生保障团队首诊按病情分诊，城市定点医院首诊按需求分流。</li></ul></li><li>场馆医疗急救信息报送：<ul><li>800M数字集群通讯系统、移动电话系统、程控电话系统、因特网系统和书面文件。</li><li>时间节点、统一渠道、统一内容、统一汇总、统一出口。</li><li>医疗信息统计表系统</li></ul></li></ul></li><li><p>风险管理</p><ul><li>医疗运行风险：救援延误、信息中断、备援力量无法启动、关键设备故障、急救药品严重不足、医疗差错、救援通道堵塞、指挥系统瘫痪、救援人员重伤或殉职等。<ul><li>突发性、破坏性、不确定性、紧迫性、信息资源紧缺性、舆论关注性。</li></ul></li><li>危机管理：<ul><li>风险预防：问题（issue），突发事件（incident），危机（crisis）<ul><li>风险事件清单，针对性响应预案。</li></ul></li><li>风险监测：<ul><li>经验监测：一线人员对救援工作进展的现状和后果进行判断，对可能出现风险的潜在因素进行挖掘并汇报。</li><li>信息检测：指挥系统通过应急通信平台对医疗运行的各级部门的工作信息及意外事件进行及时的收集和分析。</li></ul></li><li>风险预警：量化风险指标，设立风险警戒线</li><li>危机处理：级别确认并启动预案；处理好突发情况；在最低层面充分解决问题；做好信息上报和事件跟踪。</li><li>大型特发事件应急响应：建立以场馆团队为基础，以城市应急医疗队伍为保障，以检伤分类卡为依据，以场馆周边指定医院为依托的突发事件处理原则和程序。</li></ul></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Medicine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>脓毒症</title>
+      <link href="/2023/01/12/sepsis/"/>
+      <url>/2023/01/12/sepsis/</url>
+      
+        <content type="html"><![CDATA[<p>参考：《实用重症医学(第二版)》</p><h2 id="机体反应与器官功能不全"><a href="#机体反应与器官功能不全" class="headerlink" title="机体反应与器官功能不全"></a>机体反应与器官功能不全</h2><p>研究证明，机体对病损打击后产生的炎症反应的过程是影响患者病情的重要因素。机体反应是指感染、创伤、缺血等多种原因引发的机体对损伤的炎症反应。</p><h2 id="相关研究"><a href="#相关研究" class="headerlink" title="相关研究"></a>相关研究</h2><ul><li><a href="https://link.springer.com/article/10.1007/s00134-019-05872-y" target="_blank" rel="noopener">Machine learning for the prediction of sepsis: a systematic review and meta-analysis of diagnostic test accuracy</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI for Medicine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Medicine </tag>
+            
+            <tag> sepsis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Prediction of Treatment Medicines</title>
+      <link href="/2023/01/09/treatment-medicines-prediction/"/>
+      <url>/2023/01/09/treatment-medicines-prediction/</url>
+      
+        <content type="html"><![CDATA[<p>Prediction of treatment medicines can assist doctors in making informed prescription decisions for patients according to their EHRs.</p><p>Predicting treatment medicines can provide insights for treatment planning and prescription management, thus improving the efficiency of clinical decision making and medical risk management. </p><h3 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge:"></a>Challenge:</h3><ul><li>异质性：heterogenous nature of EHR data that typically includes laboratory results, treatment records, disease conditions and demographic information. <ul><li>multiple sources and in different formats.</li><li>longitudinal information (sequences of laboratory examinations and treatment medicines) and static information (patient demographics).</li></ul></li><li>相关性：complex corrrelations among EHR sequences, including inter-correlations between sequences and temporal intra-correlations within each esquences.<ul><li>examination results, treatment prescriptions(retrospectively review).</li><li>laboratory results and treatment medicines are mutually informative.</li></ul></li><li>时间动态：temporal dynamics of these correlations changing with disease progression.<ul><li>food and drinks, mood.</li></ul></li></ul><h3 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h3><ul><li>homogeneous data(同质数据): T-LSTM[4], PacRNN[5], ATTAIN[6] (future diagnoses or recommend medications)</li><li>heterogeneouts events with multi-scale sampling(多尺度采样的异构事件)：HE-LSTM</li><li>multi-view sequential learning &amp; encoding heterogeneous sequences: GAMENet[9], DMNC[10]</li><li>correlations of heterogeneous sequences: LSTM-DE[11]</li></ul><h3 id="Weakness"><a href="#Weakness" class="headerlink" title="Weakness"></a>Weakness</h3><ul><li>ignore the sequential interactions in temporal sequences</li><li>fail to fully exploit past records for improving prediction performance.</li></ul><h2 id="Prediction-of-Treatment-Medicines-With-Dual-Adaptive-Sequential-Networks"><a href="#Prediction-of-Treatment-Medicines-With-Dual-Adaptive-Sequential-Networks" class="headerlink" title="Prediction of Treatment Medicines With Dual Adaptive Sequential Networks"></a><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=9328483" target="_blank" rel="noopener">Prediction of Treatment Medicines With Dual Adaptive Sequential Networks</a></h2><h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><ul><li>data heterogeneity &amp; time-varying correlations in logitudinal data:<ul><li>dual adaptive sequential networks(DASNet)</li><li>two decomposed adaptive LSTM(DA-LSTM): capture the inter-correlations ofheterogeneous sequences through a decomposition structure with auxiliary input.</li><li>an attentive meta learning network(AT-MetaNet): generates parameter weights in DA-LSTM, extract meta knowleged from historical sequences of examination results and treatment medicines.</li><li>an attentive fusion network (AF-FuNet): fuse the embedding representations of heterogeneous information sources</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI for Medicine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Medicine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Label Enhancement</title>
       <link href="/2022/12/15/label-enhancement/"/>
       <url>/2022/12/15/label-enhancement/</url>
@@ -422,7 +591,7 @@
       <link href="/2020/01/06/anaconda/"/>
       <url>/2020/01/06/anaconda/</url>
       
-        <content type="html"><![CDATA[<p>记录一些服务器上常用命令。</p><h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><ul><li>下载与安装</li></ul><ol><li>下载安装包<br><code>wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh</code></li><li>安装<br><code>bash Anaconda3-5.3.1-Linux-x86_64.sh</code></li><li>查看安装结果<br><code>conda info</code></li><li>更新环境变量<br><code>source ~/.bashrc</code></li></ol><ul><li><p>添加环境<br><code>export PATH=&quot;/home/ry/anaconda3/bin:$PATH&quot;</code></p></li><li><p>Python 3 与 Python 2 环境转换</p></li></ul><ol><li>创建环境<br><code>conda create -n python27 python=2.7 anaconda</code></li><li>进入环境<br><code>source activate env_name</code></li><li>离开环境<br><code>source deactivate</code></li><li>列出环境<br><code>conda env list</code></li><li>删除环境<br><code>conda env remove -n env_name</code></li><li>导出环境<br><code>conda env export &gt; environment.yaml</code></li><li>加载环境<br><code>conda env create -f environment.yaml</code></li></ol><ul><li>镜像设置</li></ul><ol><li>显示所有channel<br><code>conda config --show</code></li><li><p>添加镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li><li><p>移除镜像<br><code>conda config --remove channels https://mirrors.tuna...</code></p></li><li><p>tensorflow 1.15环境<br><code>conda create -n tf1 -c conda-forge tensorflow-gpu=1.15</code></p></li></ol><h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><ol><li>安装<br><code>sudo apt install tmux</code></li><li>创建会话<br><code>tmux new -s name</code></li><li>分离会话，退出当前tmux窗口，使之在后台运行<br><code>tmux detach</code> 或 <code>Ctrl+b d</code></li><li>查看所有会话<br><code>tmux ls</code> 或 <code>tmux list-session</code></li><li>接入会话<br><code>tmux a -t name</code> 或 <code>tmux attach -t name</code></li><li>杀死会话<br><code>tmux kill-session -t name</code></li><li>切换会话<br><code>tmux switch -t name</code></li><li>重命名会话<br><code>tmux rename-session -t name</code></li></ol><h1 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h1><ol><li>创建会话<br><code>vncserver</code></li><li>设置密码<br><code>vncpasswd</code></li><li>登录<br><code>ip:server id</code></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>记录一些服务器上常用命令。</p><h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><ul><li>下载与安装</li></ul><ol><li>下载安装包<br><code>wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh</code></li><li>安装<br><code>bash Anaconda3-5.3.1-Linux-x86_64.sh</code></li><li>查看安装结果<br><code>conda info</code></li><li>更新环境变量<br><code>source ~/.bashrc</code></li></ol><ul><li><p>添加环境<br><code>export PATH=&quot;/home/ry/anaconda3/bin:$PATH&quot;</code></p></li><li><p>Python 3 与 Python 2 环境转换</p></li></ul><ol><li>创建环境<br><code>conda create -n python27 python=2.7 anaconda</code></li><li>进入环境<br><code>source activate env_name</code></li><li>离开环境<br><code>source deactivate</code></li><li>列出环境<br><code>conda env list</code></li><li>删除环境<br><code>conda env remove -n env_name</code></li><li>导出环境<br><code>conda env export &gt; environment.yaml</code></li><li>加载环境<br><code>conda env create -f environment.yaml</code></li></ol><ul><li>镜像设置</li></ul><ol><li>显示所有channel<br><code>conda config --show</code></li><li><p>添加镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></li><li><p>移除镜像<br><code>conda config --remove channels https://mirrors.tuna...</code></p></li><li><p>tensorflow 1.15环境<br><code>conda create -n tf1 -c conda-forge tensorflow-gpu=1.15</code></p></li><li><p>cudnn<br><code>conda install -c anaconda cudnn</code></p></li></ol><h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><ol><li>安装<br><code>sudo apt install tmux</code></li><li>创建会话<br><code>tmux new -s name</code></li><li>分离会话，退出当前tmux窗口，使之在后台运行<br><code>tmux detach</code> 或 <code>Ctrl+b d</code></li><li>查看所有会话<br><code>tmux ls</code> 或 <code>tmux list-session</code></li><li>接入会话<br><code>tmux a -t name</code> 或 <code>tmux attach -t name</code></li><li>杀死会话<br><code>tmux kill-session -t name</code></li><li>切换会话<br><code>tmux switch -t name</code></li><li>重命名会话<br><code>tmux rename-session -t name</code></li></ol><h1 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h1><ol><li>创建会话<br><code>vncserver</code></li><li>设置密码<br><code>vncpasswd</code></li><li>登录<br><code>ip:server id</code></li></ol>]]></content>
       
       
       <categories>
