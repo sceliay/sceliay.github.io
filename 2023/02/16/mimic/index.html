@@ -1,38 +1,81 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>MIMIC数据集 | YRen's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">MIMIC数据集</h1><a id="logo" href="/.">YRen's Blog</a><p class="description">当你凝视深渊的时候，深渊也在凝视着你。</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tags/"><i class="fa fa-tags"> 标签</i></a><a href="/about"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">MIMIC数据集</h1><div class="post-meta">2023-02-16<span> | </span><span class="category"><a href="/categories/Notes/">Notes</a></span></div><a class="disqus-comment-count" href="/2023/02/16/mimic/#vcomment"><span class="valine-comment-count" data-xid="/2023/02/16/mimic/"></span><span> 条评论</span></a><div class="post-content"><p><a href="https://mimic.mit.edu/docs/" target="_blank" rel="noopener">MIMIC文档</a></p>
-<h2 id="MIMIC-II"><a href="#MIMIC-II" class="headerlink" title="MIMIC-II"></a>MIMIC-II</h2><p><a href="https://physionet.org/content/mimic2-iaccd/1.0/" target="_blank" rel="noopener">留置动脉导管的案例</a></p>
-<p><a href="https://physionet.org/physiobank/database/mimic2wdb/matched/" target="_blank" rel="noopener">MIMIC-II matched waveform database</a></p>
-<p>BIDMC PPG and respiration</p>
-<h2 id="MIMIC-III"><a href="#MIMIC-III" class="headerlink" title="MIMIC-III"></a>MIMIC-III</h2><p>基于MIMIC-III的合成急性低血压和败血症数据集<br>包含用GAN生成的数据。<br>急性败血症：3910患者，187,680数据<br>脓毒症：2164患者，43280条数据</p>
-<p>阿片类药物使用障碍及相关内容<br>Opioid use disorder (OUD)</p>
-<p>患者病历的表型注释</p>
-<p>重症监护室血糖管理</p>
-<p>EntityBERT<br>基于bert的模型，在MIMIC-III上预训练<br>临床领域的实体中心掩蔽策略</p>
-<p>国立卫生研究院中风量表(NIHSS)注释<br>MIMIC-III<br>15项神经检查中风量表。它量化了神经缺损的物理表现，为临床决策和早期急诊分诊提供了重要支持。</p>
-<p>CareVue subset<br>包含不属于MIMIC-IV的患者的MIMIC-III子集<br>简化MIMIC-III与MIMIC-IV的组合</p>
-<h2 id="MIMIC-IV"><a href="#MIMIC-IV" class="headerlink" title="MIMIC-IV"></a>MIMIC-IV</h2><p>MIMIC-IV demo</p>
-<p>MIMIC-IV on FHIR<br>快速医疗保健互操作性资源</p>
-<p>MIMIC-IV in OMOP</p>
-<p>MIMIC-IV-ED<br>2011年-2019年，约425,000条数据。<br>包含：生命体征，分诊信息，药物调节，药物管理和出院诊断<br>数据：edstays（在ICU的停留时间）, diagnosis, medrecon（用药）, pyxis（用药的分配信息）, triage（检伤分类）, vitalsign（生命体征表）<br>可以与MIMIC-IV和MIMIC-CXR连接</p>
-<p>MIMICEL<br>急诊科的MIMIC-IV事件日志<br>从MIMIC-IV-ED中采集</p>
-<p>MIMIC-IV-NOTE</p>
-<p>MIMIC-IV-ECG<br>800,000心电图诊断，160,000患者<br>MIMIC-IV-ECG Demo</p>
-<p>MIMIC-CXR<br>数据：EHR, 图像（胸部X射线图），报告（文字）<br>377,110副图像，227,835影像学研究<br>急性和慢性心肺疾病，验证起搏器、中心静脉导管等设备的正确位置</p>
-<p>胸部x光片的眼睛注视数据<br>包括1083例病例，涵盖同样3种突出的临床疾病(即正常、肺炎和充血性心力衰竭(CHF))。从MIMIC-CXR数据库中提取这些病例对应的CXR图像。</p>
-<p>带结构化标签的胸部X线片<br>该数据集包含377,110张JPG格式图像和结构化标签，这些标签来自与这些图像相关的227,827份自由文本放射学报告。</p>
-<p>心律失常发作时ECG心电图和PPG信号模拟模型</p>
-<p>REFLACX：胸部x光片异常定位的报告和眼球追踪数据</p>
-<p>胸部x线数据集与肺分割</p>
-<p>胸部x线分割图像</p>
-<p>基于MIMIC-CXR的肺水肿严重程度分级</p>
-<p>MIMIC-IV Waveform<br>数据：心电图、光容积、呼吸、有创和无创血压<br>MIMIC-IV Waveform subset</p>
-<p>HAIM多模态数据<br>MIMIC-IV临床数据以及x-rays<br>MIMIC-IV, MIMIC-CXR-JPG</p>
-<h2 id="其他数据集"><a href="#其他数据集" class="headerlink" title="其他数据集"></a>其他数据集</h2><p>儿童重症监护数据<br>该数据库是去标识的，包括生命体征测量、药物、实验室测量、液体平衡记录、诊断代码、人口统计信息等。</p>
-<p>MS-CXR<br>1162 图像-句子<br>收集了八种不同的心肺放射学结果</p>
-<p>RadNLI<br>放射学领域的自然语言推断数据集</p>
-<p>CLIP<br>从医院出院记录中提取医生行动项的数据集</p>
-<h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>Physionet challenges<br>github<br>2023: 预测心脏骤停后昏迷的神经恢复<br>2022: 从心音图记录检测心脏杂音<br>2021: 心电图学中的不同维度<br>2020: 12导联心电图的分类<br>2019: 临床资料对脓毒症的早期预测<br>2018: 打盹<br>2017：短单导联心电图对房颤的分类<br>2016: 正常/异常心音录音分类<br>2015: 减少ICU中的虚假心律失常警报<br>2014: 多模态数据中的稳健心跳检测<br>2013: 无创胎儿心电图29篇论文和17个软件<br>2012: 预测ICU患者的死亡率17篇论文和58个软件<br>2011: 提高使用手机采集心电图的质量17篇论文和7个软件<br>2010: 注意间隙13篇论文和5个软件<br>2009: 预测急性低血压发作11篇论文和4个软件<br>2008: t波交替的检测和量化19篇论文和5 + 1软件<br>2007: 心肌梗死心电图成像6篇论文<br>2006: QT间期测量20篇论文和6个软件<br>2005: 回顾前五项挑战5篇论文<br>2004: 心房颤动自发终止12篇论文和1个软件<br>2003: 区分缺血性和非缺血性ST变3篇论文和1个软件<br>2002: RR间隔时间序列建模12篇论文和10个软件<br>2001: 预测阵发性心房颤动9篇论文<br>2000: 从心电图检测睡眠呼吸暂停13篇论文和1个软件</p>
-<p>Image/LifeCLEF</p>
-<p>临床护理的自然语言处理和信息检索<br>ShAReCLEF eHealth 2013</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>MIMIC 数据集 | YRen's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">MIMIC 数据集</h1><a id="logo" href="/.">YRen's Blog</a><p class="description">当你凝视深渊的时候，深渊也在凝视着你。</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tags/"><i class="fa fa-tags"> 标签</i></a><a href="/about"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">MIMIC 数据集</h1><div class="post-meta">2023-02-16<span> | </span><span class="category"><a href="/categories/Notes/">Notes</a></span></div><a class="disqus-comment-count" href="/2023/02/16/mimic/#vcomment"><span class="valine-comment-count" data-xid="/2023/02/16/mimic/"></span><span> 条评论</span></a><div class="post-content"><p>参考资料：<a href="https://mimic.mit.edu/docs/" target="_blank" rel="noopener">MIMIC文档</a>，<a href="https://physionet.org/content/?topic=MIMIC" target="_blank" rel="noopener">MIMIC数据集</a>，<a href="https://blog.csdn.net/qq_43787862/article/details/105028846" target="_blank" rel="noopener">MIMIC-III数据集介绍</a></p>
+<h2 id="MIMIC-III"><a href="#MIMIC-III" class="headerlink" title="MIMIC-III"></a>MIMIC-III</h2><ul>
+<li>患者人口统计学信息与院内周转信息<ul>
+<li><code>PATIENTS</code>: 患者信息<ul>
+<li>SUBJECT_ID, GENDER </li>
+<li>DOB, DOD, DOD_HOSP, DOD_SSN</li>
+</ul>
+</li>
+<li><code>ADMISSIONS</code>:患者入院信息<ul>
+<li>SUBJECT_ID, HADM_ID: patients id, admission id</li>
+<li>ADMITTIME, DISCHTIME, DEATHTIME</li>
+<li>ADMISSION_TYPE, ADMISSION_LOCATION</li>
+<li>INSURANCE, LANGUAGE, RELIGION, MARITAL_STATUS, ETHNICITY </li>
+<li>EDREGTIME, EDOUTTIME: emergency</li>
+<li>DIAGNOSIS: preliminary, free text diagnosis</li>
+<li>HOSPITAL_EXPIRE_FLAG: dead in hospital </li>
+</ul>
+</li>
+<li><code>ICUSTAYS</code>: ICU入住信息<ul>
+<li>SUBJECT_ID, HADM_ID, ICUSTAY_ID</li>
+<li>FIRST_CAREUNIT, LAST_CAREUNIT, FIRST_WARDID, LAST_WARDID</li>
+<li>INTIME, OUTTIME, LOS</li>
+</ul>
+</li>
+<li><code>CALLOUT</code>: 患者离开ICU信息</li>
+<li><code>SERVICES</code>: 医疗服务</li>
+<li><code>TRANSFERS</code>: 周转信息</li>
+</ul>
+</li>
+<li>患者在监护室住院期间采集的信息<ul>
+<li><code>CAREGIVERS</code>: 看护者信息</li>
+<li><code>CHATEVENTS</code>:电子图表，生命体征，护理相关的附加信息:呼吸机设置、实验室值、代码状态、精神状态等等。<ul>
+<li>SUBJECT_ID, HADM_ID, ICUSTAY_ID</li>
+<li>ITEMID</li>
+<li>CHARTTIME, STORETIME</li>
+<li>CGID</li>
+<li>VALUE, VALUENUM</li>
+</ul>
+</li>
+<li><code>DATETIMEEVENTS</code>: 操作信息</li>
+<li><code>INPUTEVENTS_CV</code>: 入量信息</li>
+<li><code>INPUTEVENTS_MV</code>:</li>
+<li><code>NOTEEVENTS</code>: 治疗记录</li>
+<li><code>OUTPUTEVENTS</code>: 出量信息</li>
+<li><code>PROCEDUREEVENTS_MV</code>: 操作或手术信息</li>
+</ul>
+</li>
+<li>医院记录系统采集的信息   <ul>
+<li><code>CPTEVENTS</code>: 现行程序术语(current procedural terminology, CPT)<ul>
+<li>SUBJECT_ID, HADM_ID</li>
+<li>COSTCENTER: 支付中心，<code>ICU</code>支付或<code>Resp</code>对应于机械或无创通气，由呼吸治疗师收费</li>
+<li>CHARTDATE</li>
+<li>CPT_CD, CPT_NUMBER, CPT_SUFFIX</li>
+<li>TICKET_ID_SEQ</li>
+<li>SECTIONHEADER, SUBSECTIONHEADER: CPT代码分类</li>
+</ul>
+</li>
+<li><code>DIAGNOSES_ICD</code>: ICD diagnoses<ul>
+<li>SUBJECT_ID, HADM_ID</li>
+<li>SEQ_NUM, ICD9_CODE</li>
+</ul>
+</li>
+<li><code>DRGCODES</code>: 诊断类别组</li>
+<li><code>LABEVENTS</code>: 化验项目</li>
+<li><code>MICROBIOLOGYEVENT</code>: 微生物病原体检测</li>
+<li><code>PRESCRIPTIONS</code>: 用药记录</li>
+<li><code>PROCEDURES_ICD</code>: 手术记录</li>
+</ul>
+</li>
+<li>字典信息<ul>
+<li><code>D_CPT.csv</code>: 操作记录</li>
+<li><code>D_ICD_DIAGNOSES.csv</code>：诊断</li>
+<li><code>D_ICD_PROCEDURES.csv</code>: 手术代码</li>
+<li><code>D_ITEMS.csv</code>：记录项目</li>
+<li><code>D_LABITEMS</code>: 化验项目</li>
+</ul>
+</li>
+</ul>
 </div><div class="tags"><a href="/tags/Medicine"><i class="fa fa-tag">Medicine</i></a></div><div class="post-nav"><a class="pre" href="/2023/02/17/transRL/">迁移强化学习</a><a class="next" href="/2023/02/03/emergency/">医疗保障急救技术</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
 var verify = 'false' == 'true' ? true : false;
 var GUEST_INFO = ['nick','mail','link'];
@@ -51,4 +94,4 @@ window.valine = new Valine({
   guest_info:guest_info,
   pageSize:'10'
 })
-</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://github.com/sceliay"></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/img/head.jpg"></a><p>YRen</p><a class="info-icon" href="https://github.com/sceliay" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yren@zhejianglab.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://twitter.com/yren_zj" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://weibo.com/u/2265958580" title="weibo" target="_blank" style="margin-inline:5px"> <i class="fa fa-weibo" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI-for-Medicine/">AI for Medicine</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pytorch/">Pytorch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tensorflow/">Tensorflow</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Medicine/" style="font-size: 15px;">Medicine</a> <a href="/tags/BERT/" style="font-size: 15px;">BERT</a> <a href="/tags/Theano/" style="font-size: 15px;">Theano</a> <a href="/tags/Anaconda/" style="font-size: 15px;">Anaconda</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Jupyter/" style="font-size: 15px;">Jupyter</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Matplotlib/" style="font-size: 15px;">Matplotlib</a> <a href="/tags/Pytorch/" style="font-size: 15px;">Pytorch</a> <a href="/tags/quality/" style="font-size: 15px;">quality</a> <a href="/tags/sklearn/" style="font-size: 15px;">sklearn</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Keras/" style="font-size: 15px;">Keras</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/03/22/acute/">急危重症预测</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/09/heterogeneousHealthcare/">Advances in Mining Heterogeneous Healthcare Data</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/28/association/">Association mining</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/17/transRL/">迁移强化学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/16/mimic/">MIMIC数据集</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/03/emergency/">医疗保障急救技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/12/sepsis/">脓毒症</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/09/treatment-medicines-prediction/">Prediction of Treatment Medicines</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/15/label-enhancement/">Label Enhancement</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/13/label-specific/">Label-Specific Features for Multi-Label Classification</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">YRen's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://github.com/sceliay"></form></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/img/head.jpg"></a><p>YRen</p><a class="info-icon" href="https://github.com/sceliay" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a><a class="info-icon" href="mailto:yren@zhejianglab.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://twitter.com/yren_zj" title="Twitter" target="_blank" style="margin-inline:5px"> <i class="fa fa-twitter-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://weibo.com/u/2265958580" title="weibo" target="_blank" style="margin-inline:5px"> <i class="fa fa-weibo" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI-for-Medicine/">AI for Medicine</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pytorch/">Pytorch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tensorflow/">Tensorflow</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/Theano/" style="font-size: 15px;">Theano</a> <a href="/tags/Medicine/" style="font-size: 15px;">Medicine</a> <a href="/tags/BERT/" style="font-size: 15px;">BERT</a> <a href="/tags/Anaconda/" style="font-size: 15px;">Anaconda</a> <a href="/tags/tmux/" style="font-size: 15px;">tmux</a> <a href="/tags/Jupyter/" style="font-size: 15px;">Jupyter</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Matplotlib/" style="font-size: 15px;">Matplotlib</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Pandas/" style="font-size: 15px;">Pandas</a> <a href="/tags/Data-Structure/" style="font-size: 15px;">Data Structure</a> <a href="/tags/Pytorch/" style="font-size: 15px;">Pytorch</a> <a href="/tags/quality/" style="font-size: 15px;">quality</a> <a href="/tags/Tensorflow/" style="font-size: 15px;">Tensorflow</a> <a href="/tags/sklearn/" style="font-size: 15px;">sklearn</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Keras/" style="font-size: 15px;">Keras</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/04/06/emergency-ML/">ML for Emergency</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/22/acute/">急危重症预测</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/09/heterogeneousHealthcare/">Advances in Mining Heterogeneous Healthcare Data</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/28/association/">Association mining</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/17/transRL/">迁移强化学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/16/mimic/">MIMIC 数据集</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/03/emergency/">医疗保障急救技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/12/sepsis/">脓毒症</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/09/treatment-medicines-prediction/">Prediction of Treatment Medicines</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/15/label-enhancement/">Label Enhancement</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">YRen's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js"></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
